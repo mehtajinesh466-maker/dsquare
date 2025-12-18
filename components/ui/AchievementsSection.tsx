@@ -18,7 +18,7 @@ const achievers: Achiever[] = [
     name: "Paritosh Dhanaraju",
     country: "India",
     flag: "IN",
-    image: "/s1.jpeg",
+    image: "/paritosh.jpeg",
     title: "Achieved a FIDE rating of 1775 in an International Chess Tournament",
   },
   {
@@ -26,7 +26,7 @@ const achievers: Achiever[] = [
     name: "Manomay Sharma",
     country: "India",
     flag: "IN",
-    image: "s3.png",
+    image: "manmoy.jpeg",
     title: "Achieved a FIDE rating of 1617 in an International Chess Tournament",
   },
   {
@@ -34,7 +34,7 @@ const achievers: Achiever[] = [
     name: "Ivaan Bansal",
     country: "India",
     flag: "IN",
-    image: "/s2.webp",
+    image: "/ivaan.jpeg",
     title: "Achieved a FIDE rating of 1600 through consistent rated tournament performances",
   },
   {
@@ -42,7 +42,7 @@ const achievers: Achiever[] = [
     name: "Atharv Singh",
     country: "India",
     flag: "IN",
-    image: "/s4.png",
+    image: "/athar.jpeg",
     title: "Achieved a FIDE rating of 1554, reflecting steady competitive improvement",
   }
 ];
