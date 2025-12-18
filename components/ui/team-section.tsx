@@ -1,177 +1,138 @@
-"use client";
+"use client"
 
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { 
-  Star, 
-  Trophy, 
-  Users, 
-  Target,
-  ChevronRight,
-  ExternalLink
-} from 'lucide-react';
+import React from "react"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import { Trophy, Medal, Brain, Target, Star, Quote } from "lucide-react"
 
 export default function TeamSection() {
-  const coaches = [
-    {
-      name: 'Grandmaster Ravi Sharma',
-      title: 'Head Coach',
-      rating: '2500+ FIDE',
-      experience: '15+ years',
-      image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400',
-      specialties: ['Openings', 'Endgames'],
-      achievements: ['National Champion', 'Coach of the Year 2023'],
-    },
-    {
-      name: 'International Master Priya Patel',
-      title: 'Senior Coach',
-      rating: '2300+ FIDE',
-      experience: '12+ years',
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w-400',
-      specialties: ['Strategy', 'Tactics'],
-      achievements: ['Women\'s Grand Prix Winner', 'Best Youth Coach'],
-    },
-    {
-      name: 'FIDE Master Arjun Kumar',
-      title: 'Strategy Coach',
-      rating: '2200+ FIDE',
-      experience: '8+ years',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
-      specialties: ['Tournament Prep', 'Time Management'],
-      achievements: ['Rapid Chess Champion', 'Most Improved Player Awards'],
-    },
-  ];
-
-  const stats = [
-    { value: '50+', label: 'Total Coaches' },
-    { value: '150+', label: 'Years Combined Experience' },
-    { value: '1000+', label: 'Students Coached' },
-    { value: '2500+', label: 'Average FIDE Rating' },
-  ];
+  const achievements = [
+    "2017: 1st Rank in All India Below 1600 Chess Championship, Kottayam",
+    "2013: 2nd Rank in U.P. (Category Prize) at All India International Rating Tournament",
+    "2011: 9th Rank in National U-20 Chess Championship, Udaipur",
+    "2011: 4th Rank in U.P. State U-20 Chess Tournament, Ghaziabad",
+    "2023: Awarded National Chess Instructor Title",
+    "Multiple participations in All India Open tournaments & State championships"
+  ]
 
   return (
-    <section className="py-14 bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Header */}
-        <div className="text-center mb-16">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         
+        {/* TOP SECTION: Split Layout (Image vs Bio) */}
+        <div className="grid lg:grid-cols-12 gap-12 items-start mb-16">
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            World-Class{" "}
-            <span className="relative">
-              <span className="relative z-10 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Coaching Team
-              </span>
-              <span className="absolute -bottom-2 left-0 w-full h-3 bg-gradient-to-r from-amber-200 to-yellow-200 transform rotate-[-1deg] z-0"></span>
-            </span>
-          </h2>
-          
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Learn from champions who have competed at the highest levels and 
-            are passionate about nurturing the next generation
-          </p>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {stats.map((stat, index) => (
-            <div 
-              key={index}
-              className="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300"
+          {/* LEFT: Image (Takes up 5 columns) */}
+          <div className="lg:col-span-5 relative">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="sticky top-24" // Keeps image in view if text is long
             >
-              <p className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
-                {stat.value}
-              </p>
-              <p className="text-gray-600 font-medium">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Coaches Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {coaches.map((coach, index) => (
-            <div 
-              key={index}
-              className="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-            >
-              {/* Image */}
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src={coach.image}
-                  alt={coach.name}
+              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-[6px] border-white aspect-[3/4]">
+                 {/* Replaced with a placeholder closer to a professional headshot aspect ratio */}
+                 <Image 
+                  src="/viveksir.jpeg" 
+                  alt="Vivek Singh" 
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="object-cover"
+                  priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 
-                {/* Rating Badge */}
-                <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-gray-900 font-bold px-3 py-1 rounded-full text-sm flex items-center gap-1">
-                  <Star className="w-4 h-4 fill-current" />
-                  {coach.rating}
+                {/* Overlay Name Tag */}
+                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-6 pt-20">
+                    <h3 className="text-white text-2xl font-bold">Vivek Singh</h3>
+                    <p className="text-purple-200 font-medium">Founder & Head Coach</p>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{coach.name}</h3>
-                <p className="text-purple-600 font-semibold mb-4">{coach.title}</p>
-                
-                {/* Experience */}
-                <div className="flex items-center gap-2 text-gray-600 mb-4">
-                  <Users className="w-4 h-4" />
-                  <span className="text-sm">{coach.experience} Experience</span>
+              {/* Experience Badge */}
+              <div className="absolute -top-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-purple-100 flex items-center gap-3 animate-bounce-slow">
+                <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-3 rounded-lg text-white">
+                  <Star fill="currentColor" size={20} />
                 </div>
-
-                {/* Specialties */}
-                <div className="mb-4">
-                  <p className="text-sm text-gray-500 mb-2">Specializes in:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {coach.specialties.map((specialty, i) => (
-                      <span 
-                        key={i}
-                        className="px-3 py-1 bg-gradient-to-r from-purple-50 to-pink-50 text-purple-700 rounded-full text-sm font-medium border border-purple-100"
-                      >
-                        {specialty}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Achievements */}
-                <div className="space-y-2">
-                  {coach.achievements.map((achievement, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <Trophy className="w-4 h-4 text-amber-500" />
-                      <span className="text-sm text-gray-600">{achievement}</span>
-                    </div>
-                  ))}
+                <div>
+                  <p className="text-2xl font-black text-gray-900 leading-none">12+</p>
+                  <p className="text-xs text-gray-500 font-bold uppercase">Years Exp.</p>
                 </div>
               </div>
-            </div>
-          ))}
+            </motion.div>
+          </div>
+
+          {/* RIGHT: Bio & Philosophy (Takes up 7 columns) */}
+          <div className="lg:col-span-7 space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-100 text-purple-700 font-semibold text-sm mb-6">
+                <Medal className="w-4 h-4" />
+                <span>International Rated Player</span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                Mastering the Game with <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+                  Checkmate Sensei
+                </span>
+              </h2>
+
+              <div className="prose prose-lg text-gray-600 mb-8">
+                <p>
+                  Vivek Singh is an International Chess Player and a dedicated professional chess coach with over 12 years of coaching experience. He has trained students across all levels—from beginners taking their first steps in chess to competitive players participating in state and national-level tournaments.
+                </p>
+              </div>
+
+              {/* Philosophy Box - Highlights specific teaching style */}
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-8 rounded-2xl border border-purple-100 relative">
+                <Quote className="absolute top-6 right-6 text-purple-200 w-10 h-10 rotate-180" />
+                <h4 className="flex items-center gap-2 text-xl font-bold text-gray-900 mb-4">
+                  <Brain className="w-6 h-6 text-purple-600" />
+                  Coaching Philosophy
+                </h4>
+                <p className="text-gray-700 leading-relaxed font-medium">
+                  "I focus on building a strong thinking process rather than rote memorization. My goal is to instill deep calculation, visualization, planning, and disciplined decision-making in every student."
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
-        {/* CTA */}
-        {/* <div className="text-center">
-          <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-100 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">
-              Meet All Our Champions
+        {/* BOTTOM SECTION: Achievements (Full Width Grid) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <div className="h-px bg-gray-200 flex-1"></div>
+            <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+              <Trophy className="w-6 h-6 text-amber-500" />
+              Achievements & Career Highlights
             </h3>
-            <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-              Our complete coaching team includes Grandmasters, International Masters, 
-              and specialized trainers for every skill level.
-            </p>
-            <Link 
-              href="/coaches"
-              className="group inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-10 rounded-xl text-lg shadow-lg shadow-purple-200 hover:shadow-xl transition-all duration-300"
-            >
-              <span>View All Coaches</span>
-              <ExternalLink className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-            </Link>
-          </div> */}
-        {/* </div> */}
+            <div className="h-px bg-gray-200 flex-1"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {achievements.map((item, i) => (
+              <div 
+                key={i}
+                className="group p-5 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-purple-200 transition-all flex items-start gap-3"
+              >
+                <div className="mt-1 min-w-[24px]">
+                  <Target className="w-5 h-5 text-purple-600 group-hover:scale-110 transition-transform" />
+                </div>
+                <p className="text-gray-700 text-sm font-medium leading-relaxed">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
       </div>
     </section>
-  );
+  )
 }
