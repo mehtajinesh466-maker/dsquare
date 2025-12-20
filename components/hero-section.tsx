@@ -12,7 +12,7 @@ import {
   ShieldCheck,
   Crown
 } from "lucide-react";
-
+import Link from "next/link";
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
 
@@ -84,14 +84,16 @@ export default function HeroSection() {
             {/* CTA Buttons */}
             {/* Added 'justify-center lg:justify-start' */}
             <div className="flex flex-col sm:flex-row gap-4 pt-2 md:pt-4 justify-center lg:justify-start">
-              <button className="w-full sm:w-auto group relative px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold text-lg shadow-xl shadow-indigo-900/20 hover:shadow-2xl hover:shadow-indigo-900/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  Book Free Trial Class
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-            </div>
+  <Link href="/bookdemo" className="w-full sm:w-auto">
+    <button className="w-full group relative px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold text-lg shadow-xl shadow-indigo-900/20 hover:shadow-2xl hover:shadow-indigo-900/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+      <span className="relative z-10 flex items-center justify-center gap-2">
+        Book Free Trial Class
+        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+      </span>
+      <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    </button>
+  </Link>
+</div>
 
             {/* Social Proof (Small) */}
             {/* Added 'justify-center lg:justify-start' */}

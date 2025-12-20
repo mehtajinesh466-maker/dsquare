@@ -194,12 +194,19 @@ export function Footer() {
              </div>
              
              {/* Mini Map Location Preview (Decorative) */}
-             <div className="bg-indigo-900/30 p-3 rounded-xl border border-indigo-800/50 flex items-start gap-3">
-                <MapPin className="text-red-400 shrink-0 mt-0.5" size={16} />
-                <p className="text-xs text-indigo-200 leading-relaxed">
-                  Available globally. <br/> Headquartered in India.
-                </p>
-             </div>
+             {/* Location */}
+<div className="bg-indigo-900/30 p-4 rounded-xl border border-indigo-800/50 flex items-start gap-3">
+  <MapPin className="text-red-400 shrink-0 mt-0.5" size={18} />
+  <p className="text-xs text-indigo-200 leading-relaxed">
+    <span className="font-semibold text-white block mb-1">
+      Our Location
+    </span>
+    Plot No-915A, Niti Khand-1<br />
+    Indirapuram, Ghaziabad<br />
+    India
+  </p>
+</div>
+
           </div>
 
         </div>
