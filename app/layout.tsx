@@ -4,15 +4,24 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
-import  Header  from "@/components/header"
+import Header from "@/components/header"
 import { Footer } from "@/components/footer"
+import { DemoProvider } from "@/context/DemoContext"
+import BookDemoModal from "@/components/BookDemoModal"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: " Checkmate Sensei  Academy - Professional Chess Training",
-  description:
-    "Professional chess training academy with FIDE rated coaches. Learn chess from beginners to advanced levels with online and offline classes.",
-  generator: "v0.app",
+  title: "Checkmate Sensei Academy | Professional Chess Coaching for Kids",
+  description: "Nurturing young minds through strategic chess training. Founded by International Rated Coach Vivek Singh. Expert-led 1:1 and group classes for ages 6-16.",
+  keywords: ["Chess Academy Indirapuram", "Online Chess Classes", "Vivek Singh Chess", "Checkmate Sensei", "FIDE Rated Coaches"],
+  openGraph: {
+    title: "Checkmate Sensei Academy",
+    description: "Transform your child into a strategic thinker. Book a free demo class today.",
+    url: "https://checkmatesensei.com",
+    siteName: "Checkmate Sensei Academy",
+    locale: "en_IN",
+    type: "website",
+  },
 }
 
 export default function RootLayout({
@@ -24,29 +33,53 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="" />
-        <link rel="icon" type="image/png" sizes="16x16" href="" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <script type="application/ld+json">
         {`
         {
           "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "  Checkmate Sensei  Academy",
-          "url": "https://telanganachessschool.com",
+          "@type": "SportsOrganization",
+          "name": "Checkmate Sensei Academy",
+          "url": "https://checkmatesensei.com",
+          "logo": "https://checkmatesensei.com/logo.png",
+          "founder": {
+            "@type": "Person",
+            "name": "Vivek Singh"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "915A, Niti Khand I, Indirapuram",
+            "addressLocality": "Ghaziabad",
+            "addressRegion": "UP",
+            "postalCode": "201014",
+            "addressCountry": "IN"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-8130627389",
+            "contactType": "customer service",
+            "email": "checkmatesensei@gmail.com"
+          },
           "sameAs": [
-            "https://thegeniuschessacademy.com"
+            "https://www.facebook.com/checkmatesensei",
+            "https://www.instagram.com/checkmatesensei"
           ]
         }
         `}
         </script>
-        <meta name="relatedAcademy" content="https://thegeniuschessacademy.com" />
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-        <Header />
-        <Suspense fallback={null}>{children}</Suspense>
-        <Footer />
-        <Analytics />
+        <DemoProvider>
+          <Header />
+          <Suspense fallback={null}>
+            <main>{children}</main>
+          </Suspense>
+          <Footer />
+          <Analytics />
+          
+          {/* Global Modal sits here, listening to the provider */}
+          <BookDemoModal />
+        </DemoProvider>
       </body>
     </html>
   )

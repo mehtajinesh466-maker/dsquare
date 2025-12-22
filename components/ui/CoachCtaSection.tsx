@@ -1,7 +1,13 @@
+"use client"; // 1. Add this for client-side hooks
+
 import React from 'react';
 import { ArrowRightIcon, SparklesIcon } from './BannerIcon';
+import { useDemoModal } from "@/context/DemoContext"; // 2. Import the hook
 
 const CoachCtaSection: React.FC = () => {
+  // 3. Initialize the modal trigger
+  const { openDemoModal } = useDemoModal();
+
   return (
     <section className="relative py-16 px-4 md:px-8 bg-white flex justify-center z-20">
       
@@ -21,7 +27,7 @@ const CoachCtaSection: React.FC = () => {
 
           {/* Left Side: Image Pop-out */}
           <div className="relative md:w-1/3 flex justify-center md:justify-start md:-mt-8 md:-ml-4 mb-6 md:mb-0 shrink-0">
-             <div className="relative group cursor-pointer">
+             <div className="relative group cursor-pointer" onClick={openDemoModal}>
                 {/* Glowing ring */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600 to-purple-500 blur-lg opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
@@ -34,12 +40,10 @@ const CoachCtaSection: React.FC = () => {
                   />
                 </div>
 
-                {/* Decorative Sparkle floating near the head/top-right */}
                 <div className="absolute -top-2 -right-2 z-20 animate-pulse">
                    <SparklesIcon className="w-8 h-8 text-yellow-400" />
                 </div>
                 
-                 {/* Decorative Sparkle small left */}
                 <div className="absolute bottom-4 -left-2 z-20 animate-pulse delay-700">
                    <SparklesIcon className="w-5 h-5 text-purple-400" />
                 </div>
@@ -56,9 +60,12 @@ const CoachCtaSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Right: Button */}
+          {/* Right: Button UPDATED to trigger modal */}
           <div className="z-10 shrink-0">
-            <button className="group bg-white text-[#1e1b4b] hover:bg-blue-50 active:scale-95 transition-all duration-300 font-bold py-3 px-8 rounded-full flex items-center gap-2 shadow-[0_4px_14px_0_rgba(255,255,255,0.39)]">
+            <button 
+              onClick={openDemoModal}
+              className="group bg-white text-[#1e1b4b] hover:bg-blue-50 active:scale-95 transition-all duration-300 font-bold py-3 px-8 rounded-full flex items-center gap-2 shadow-[0_4px_14px_0_rgba(255,255,255,0.39)]"
+            >
               GET STARTED
               <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

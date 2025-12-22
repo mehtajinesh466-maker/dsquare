@@ -1,7 +1,8 @@
 "use client";
 
 import React from 'react';
-import { Trophy, Award, Medal, Star, Target, TrendingUp } from 'lucide-react';
+import { Trophy, Award, Medal, Star, Target, TrendingUp, Users } from 'lucide-react';
+import PremiumStats from './premiunstats';
 
 export default function AchievementsSection() {
   const achievements = [
@@ -56,6 +57,13 @@ export default function AchievementsSection() {
       icon: <Award className="w-6 h-6" />,
     },
   ];
+
+  const stats = [
+  { value: "100+", label: "Tournament Champions", icon: Trophy },
+  { value: "20+", label: "Expert Coaches", icon: Users },
+  { value: "21+", label: "Tournaments Won", icon: Target },
+  { value: "20+", label: "Years of Experience", icon: Award },
+];
 
   return (
     <section className="py-14 bg-gradient-to-b from-white to-gray-50">
@@ -145,20 +153,7 @@ export default function AchievementsSection() {
             ))}
           </div>
 
-          {/* Trophy Showcase */}
-          <div className="mt-12 pt-8 border-t border-purple-200">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Trophy className="w-8 h-8 text-gray-900" />
-                  </div>
-                  <p className="text-2xl font-bold text-gray-900">50+</p>
-                  <p className="text-gray-600 text-sm">Trophies Year {2023 - i}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+        <PremiumStats/>
         </div>
 
       
