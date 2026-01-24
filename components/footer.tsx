@@ -39,7 +39,6 @@ export function Footer() {
   const companyLinks = [
     { name: "Contact Us", href: "/contact" },
     { name: "Achievements", href: "/achievements" },
-    { name: "Pricing", href: "/pricing" },
   ];
 
   return (
