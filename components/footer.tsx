@@ -51,26 +51,18 @@ export function Footer() {
       {/* 1. The Wise Owl (Top Right) */}
       <div className="absolute top-0 right-10 md:right-20 z-0 pointer-events-none opacity-90 hidden sm:block">
         <div className="relative w-32 h-32 animate-float-slow">
-           {/* Branch */}
            <div className="absolute bottom-0 right-[-20px] w-40 h-2 bg-[#4338ca] rounded-full rotate-[-10deg]"></div>
-           {/* Owl Body */}
            <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-2xl">
               <g transform="translate(50, 20)">
-                {/* Body */}
                 <ellipse cx="50" cy="70" rx="45" ry="55" fill="#6366f1" />
-                {/* Belly */}
                 <ellipse cx="50" cy="85" rx="30" ry="35" fill="#818cf8" />
-                {/* Eyes */}
                 <circle cx="35" cy="55" r="12" fill="white" />
                 <circle cx="65" cy="55" r="12" fill="white" />
                 <circle cx="35" cy="55" r="5" fill="#1e1b4b" className="animate-pulse" />
                 <circle cx="65" cy="55" r="5" fill="#1e1b4b" className="animate-pulse" />
-                {/* Beak */}
                 <path d="M45,65 L55,65 L50,75 Z" fill="#fbbf24" />
-                {/* Ears */}
                 <path d="M10,30 L25,50 L40,30 Z" fill="#6366f1" />
                 <path d="M60,30 L75,50 L90,30 Z" fill="#6366f1" />
-                {/* Graduation Cap (The Sensei) */}
                 <path d="M10,25 L50,5 L90,25 L50,45 Z" fill="#312e81" stroke="#fbbf24" strokeWidth="2" />
                 <path d="M90,25 L90,35" stroke="#fbbf24" strokeWidth="2" />
                 <circle cx="90" cy="38" r="3" fill="#fbbf24" />
@@ -79,7 +71,7 @@ export function Footer() {
         </div>
       </div>
 
-      {/* 2. Floating Chess Knight (Left Side) */}
+      {/* 2. Floating Chess Knight */}
       <div className="absolute top-20 left-10 opacity-10 z-0 rotate-12 animate-float">
          <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor" className="text-white">
             <path d="M19 22H5V20H19V22ZM17 18H7V16H17V18ZM13.5 2C13.5 2.82843 12.8284 3.5 12 3.5C11.1716 3.5 10.5 2.82843 10.5 2C10.5 1.17157 11.1716 0.5 12 0.5C12.8284 0.5 13.5 1.17157 13.5 2ZM11 5.5H13V8.5H11V5.5ZM7 8H9V14H7V8ZM15 8H17V14H15V8ZM12 18C13.6569 18 15 16.6569 15 15C15 13.3431 13.6569 12 12 12C10.3431 12 9 13.3431 9 15C9 16.6569 10.3431 18 12 18Z" fillOpacity="0.5"/>
@@ -87,7 +79,7 @@ export function Footer() {
          </svg>
       </div>
 
-      {/* 3. Ambient Elements (Clouds & Stars) */}
+      {/* 3. Ambient Elements */}
       <div className="absolute top-10 right-1/3 opacity-20 animate-pulse-slow">
         <Cloud size={64} fill="white" />
       </div>
@@ -101,13 +93,9 @@ export function Footer() {
         <Moon size={24} className="absolute top-8 right-8 text-yellow-100 opacity-40 rotate-12" fill="currentColor" />
       </div>
 
-      {/* =======================
-          MAIN CONTENT 
-         ======================= */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 pt-16 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           
-          {/* Column 1: Brand Info */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
                <div className="relative group cursor-pointer">
@@ -142,7 +130,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
           <div className="lg:pl-8">
              <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
                <span className="w-8 h-1 bg-yellow-400 rounded-full"></span>
@@ -160,7 +147,6 @@ export function Footer() {
              </ul>
           </div>
 
-          {/* Column 3: Academy */}
           <div>
              <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
                <span className="w-8 h-1 bg-pink-500 rounded-full"></span>
@@ -178,7 +164,6 @@ export function Footer() {
              </ul>
           </div>
 
-          {/* Column 4: Connect */}
           <div>
              <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
                <span className="w-8 h-1 bg-blue-500 rounded-full"></span>
@@ -192,22 +177,16 @@ export function Footer() {
                 ))}
              </div>
              
-             {/* Mini Map Location Preview (Decorative) */}
-             {/* Location */}
-<div className="bg-indigo-900/30 p-4 rounded-xl border border-indigo-800/50 flex items-start gap-3">
-  <MapPin className="text-red-400 shrink-0 mt-0.5" size={18} />
-  <p className="text-xs text-indigo-200 leading-relaxed">
-    <span className="font-semibold text-white block mb-1">
-      Our Location
-    </span>
-    Plot No-915A, Niti Khand-1<br />
-    Indirapuram, Ghaziabad<br />
-    India
-  </p>
-</div>
-
+             <div className="bg-indigo-900/30 p-4 rounded-xl border border-indigo-800/50 flex items-start gap-3">
+                <MapPin className="text-red-400 shrink-0 mt-0.5" size={18} />
+                <p className="text-xs text-indigo-200 leading-relaxed">
+                    <span className="font-semibold text-white block mb-1">Our Location</span>
+                    Plot No-915A, Niti Khand-1<br />
+                    Indirapuram, Ghaziabad<br />
+                    India
+                </p>
+             </div>
           </div>
-
         </div>
       </div>
 
@@ -217,9 +196,23 @@ export function Footer() {
       <div className="border-t border-indigo-900/50 bg-[#151238]">
         <div className="container mx-auto px-6 py-6">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-              <p className="text-indigo-300 text-sm">
-                 © {new Date().getFullYear()} <span className="text-white font-semibold">Checkmate Sensei</span>. All rights reserved.
-              </p>
+              <div className="space-y-1">
+                <p className="text-indigo-300 text-sm">
+                   © {new Date().getFullYear()} <span className="text-white font-semibold">Checkmate Sensei</span>. All rights reserved.
+                </p>
+                {/* CREDIT ADDED HERE */}
+                <p className="text-xs text-indigo-400">
+                    Designed by{" "}
+                    <a 
+                        href="https://wa.me/917851988964" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-indigo-200 hover:text-yellow-400 transition-colors font-medium underline underline-offset-4"
+                    >
+                        jinesh mehta
+                    </a>
+                </p>
+              </div>
               <div className="flex gap-6 text-xs text-indigo-400 font-medium">
                  <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
                  <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
@@ -228,13 +221,9 @@ export function Footer() {
         </div>
       </div>
 
-      {/* =======================
-          FLOATING BUTTONS 
-         ======================= */}
-      
-      {/* WhatsApp Button */}
+      {/* WhatsApp Coach Button */}
       <a
-         href="https://wa.me/918130627389" // Updated link based on phone number
+         href="https://wa.me/918130627389"
          target="_blank"
          rel="noopener noreferrer"
          className="fixed bottom-6 left-6 z-50 flex items-center gap-2 bg-[#25D366] hover:bg-[#1fb855] text-white pl-3 pr-5 py-3 rounded-full shadow-[0_4px_14px_rgba(37,211,102,0.4)] transition-all duration-300 hover:-translate-y-1 hover:scale-105 group"
@@ -256,7 +245,6 @@ export function Footer() {
         <ArrowUp size={20} strokeWidth={2.5} />
       </button>
 
-      {/* Custom Styles for animations not in standard Tailwind */}
       <style jsx global>{`
         @keyframes float-slow {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -270,18 +258,10 @@ export function Footer() {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-3px); }
         }
-        .animate-float-slow {
-          animation: float-slow 6s ease-in-out infinite;
-        }
-        .animate-float {
-          animation: float-slow 4s ease-in-out infinite;
-        }
-        .animate-twinkle {
-          animation: twinkle 3s ease-in-out infinite;
-        }
-        .animate-bounce-short {
-          animation: bounce-short 2s ease-in-out infinite;
-        }
+        .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+        .animate-float { animation: float-slow 4s ease-in-out infinite; }
+        .animate-twinkle { animation: twinkle 3s ease-in-out infinite; }
+        .animate-bounce-short { animation: bounce-short 2s ease-in-out infinite; }
         .delay-300 { animation-delay: 300ms; }
         .delay-700 { animation-delay: 700ms; }
       `}</style>
