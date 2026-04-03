@@ -9,12 +9,9 @@ const AboutHero: React.FC = () => {
   return (
     <section className="relative w-full min-h-screen bg-white overflow-hidden flex flex-col md:flex-row items-center">
       
-      {/* --- LEFT SIDE: IMAGE WITH BLOB & WAVE --- */}
-      <div className="relative w-full md:w-1/2 h-[50vh] md:h-screen flex items-center justify-center order-2 md:order-1 bg-white">
+      {/* --- IMAGE SIDE: Set to order-1 for mobile (appears first) --- */}
+      <div className="relative w-full md:w-1/2 h-[50vh] md:h-screen flex items-center justify-center order-1 bg-white pt-0 md:pt-0">
         
-       
-
-       
         {/* The Main Image */}
         <div className="relative z-10 w-full h-full flex items-end justify-center px-4 md:-translate-y-12 transition-transform duration-700">
           <img 
@@ -23,14 +20,13 @@ const AboutHero: React.FC = () => {
             className="w-auto h-[85%] md:h-[90%] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
           />
         </div>
-
         
       </div>
 
-      {/* --- RIGHT SIDE: YOUR ORIGINAL CONTENT --- */}
-      <div className="relative w-full md:w-1/2 flex items-center bg-white order-1 md:order-2 px-6 md:px-12 lg:px-20 py-12 md:py-0">
+      {/* --- TEXT SIDE: Set to order-2 for mobile (appears second) --- */}
+      <div className="relative w-full md:w-1/2 flex items-center bg-white order-2 px-6 md:px-12 lg:px-20 py-12 md:py-0">
         
-        {/* Subtle Grid Background (kept from your original) */}
+        {/* Subtle Grid Background */}
         <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
              style={{ backgroundImage: `radial-gradient(${brandTeal} 1.2px, transparent 1.2px)`, backgroundSize: '35px 35px' }}>
         </div>

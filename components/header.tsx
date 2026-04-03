@@ -19,8 +19,8 @@ const NAV_ITEMS = [
     name: "Classes", 
     href: "#",
     submenu: [
-      { name: "Online Classes", href: "/online-classes", icon: Globe },
-      { name: "Offline Classes", href: "/offline-classes", icon: MapPin },
+      { name: "Online Classes", href: "/online", icon: Globe },
+      { name: "Offline Classes", href: "/offline", icon: MapPin },
     ]
   },
   { name: "Curriculum", href: "/curriculum" },

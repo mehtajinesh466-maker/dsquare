@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { ChevronRight, Home, Brain, ListChecks, Target } from 'lucide-react';
+import { ChevronRight, Home, ListChecks, Target } from 'lucide-react';
 
 const CurriculumHero: React.FC = () => {
   const brandTeal = "#008d96";
@@ -9,28 +9,20 @@ const CurriculumHero: React.FC = () => {
   return (
     <section className="relative w-full min-h-screen bg-white overflow-hidden flex flex-col md:flex-row items-center">
       
-      {/* --- LEFT SIDE: IMAGE WITH ORGANIC BLOB & WAVE --- */}
-      <div className="relative w-full md:w-1/2 h-[50vh] md:h-screen flex items-center justify-center order-2 md:order-1 bg-white">
-        
-
-
-   
+      {/* --- IMAGE SIDE: order-1 on mobile (appears first) --- */}
+      <div className="relative w-full md:w-1/2 h-[45vh] md:h-screen flex items-center justify-center order-1 bg-white pt-0 md:pt-0">
         {/* The Main Illustration/Image */}
         <div className="relative z-10 w-full h-full flex items-end justify-center px-4 md:-translate-y-12 transition-transform duration-700">
           <img 
             src="/cur.png" 
             alt="D'Square Chess Curriculum" 
-            className="w-auto h-[80%] md:h-[85%] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.15)]"
+            className="w-auto h-[90%] md:h-[85%] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.15)]"
           />
         </div>
-
-   
-
-     
       </div>
 
-      {/* --- RIGHT SIDE: CONTENT --- */}
-      <div className="relative w-full md:w-1/2 flex items-center bg-white order-1 md:order-2 px-6 md:px-12 lg:px-20 py-12 md:py-0">
+      {/* --- TEXT SIDE: order-2 on mobile (appears second) --- */}
+      <div className="relative w-full md:w-1/2 flex items-center bg-white order-2 px-6 md:px-12 lg:px-20 py-12 md:py-0">
         
         {/* Subtle Pattern Overlay */}
         <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
@@ -62,18 +54,18 @@ const CurriculumHero: React.FC = () => {
           </div>
 
           {/* Key Curriculum Pillars */}
-          <div className="grid grid-cols-2 gap-6 mb-12">
-             <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-slate-50">
-                   <ListChecks size={20} style={{ color: brandTeal }} />
+          <div className="grid grid-cols-2 gap-4 md:gap-6 mb-12">
+             <div className="flex items-center gap-2 md:gap-3">
+                <div className="p-2 rounded-lg bg-slate-50 shrink-0">
+                   <ListChecks size={18} style={{ color: brandTeal }} />
                 </div>
-                <span className="text-[10px] md:text-xs font-black uppercase tracking-widest text-slate-700">5 Structured Levels</span>
+                <span className="text-[9px] md:text-xs font-black uppercase tracking-widest text-slate-700">5 Structured Levels</span>
              </div>
-             <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-slate-50">
-                   <Target size={20} className="text-orange-500" />
+             <div className="flex items-center gap-2 md:gap-3">
+                <div className="p-2 rounded-lg bg-slate-50 shrink-0">
+                   <Target size={18} className="text-orange-500" />
                 </div>
-                <span className="text-[10px] md:text-xs font-black uppercase tracking-widest text-slate-700">Tournament Ready</span>
+                <span className="text-[9px] md:text-xs font-black uppercase tracking-widest text-slate-700">Tournament Ready</span>
              </div>
           </div>
 

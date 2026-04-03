@@ -24,21 +24,22 @@ const CompactDemoCTA: React.FC = () => {
           </svg>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-center relative z-10">
+        {/* Changed to flex-col for mobile and grid for desktop */}
+        <div className="flex flex-col lg:grid lg:grid-cols-12 items-center relative z-10">
           
-          {/* Left Side: Text & CTA (More Compact) */}
-          <div className="lg:col-span-7 p-8 md:p-12 lg:p-16 text-white">
-            <h2 className="text-3xl md:text-5xl lg:text-5xl font-black leading-tight mb-4 tracking-tight">
+          {/* Left Side: Text & CTA */}
+          <div className="w-full lg:col-span-7 p-8 md:p-12 lg:p-16 text-center lg:text-left">
+            <h2 className="text-3xl md:text-5xl font-black leading-tight mb-4 tracking-tight text-white">
               Ready to Master the <br className="hidden sm:block" />
               64 Squares?
             </h2>
             
-            <p className="text-base md:text-lg text-white/80 max-w-md mb-8 font-medium">
+            <p className="text-base md:text-lg text-white/80 max-w-md mb-8 font-medium mx-auto lg:mx-0">
               Experience the future of chess education with our engineering-led curriculum. 
               Book your free assessment today!
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-8">
               <a 
                 href="/book-demo"
                 className="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 rounded-full font-black text-base flex items-center justify-center gap-3 hover:bg-slate-100 transition-all shadow-lg active:scale-95"
@@ -59,18 +60,18 @@ const CompactDemoCTA: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Side: Compact Image Cards */}
-          <div className="lg:col-span-5 relative h-[300px] md:h-[450px] hidden lg:flex items-center justify-center overflow-hidden pr-8">
+          {/* Right Side: Compact Image Cards - Now visible on md (tablets) and lg */}
+          <div className="w-full lg:col-span-5 relative h-[350px] md:h-[450px] hidden md:flex items-center justify-center overflow-hidden lg:pr-8 pb-10 lg:pb-0">
             
             {/* Background Decorative Card */}
-            <div className="absolute w-60 h-80 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 rotate-[-10deg] -translate-x-12 translate-y-6 flex flex-col p-6 text-white/40">
+            <div className="absolute w-56 h-72 md:w-60 md:h-80 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 rotate-[-10deg] -translate-x-12 translate-y-6 flex flex-col p-6 text-white/40">
                 <Brain size={32} className="mb-4" />
                 <div className="h-3 w-24 bg-white/20 rounded-full mb-2" />
                 <div className="h-3 w-16 bg-white/20 rounded-full" />
             </div>
 
             {/* Main Mastery Card with IMAGE */}
-            <div className="absolute w-64 h-80 bg-white rounded-[2rem] shadow-2xl rotate-6 translate-x-10 flex flex-col p-5 border border-slate-100 group">
+            <div className="absolute w-60 h-72 md:w-64 md:h-80 bg-white rounded-[2rem] shadow-2xl rotate-6 translate-x-10 flex flex-col p-5 border border-slate-100 group">
                
                {/* Card Header */}
                <div className="flex justify-between items-center mb-4">
@@ -84,9 +85,9 @@ const CompactDemoCTA: React.FC = () => {
                </div>
 
                {/* --- THE IMAGE AREA --- */}
-               <div className="w-full h-32 bg-slate-100 rounded-2xl overflow-hidden mb-4 border border-slate-50 relative">
+               <div className="w-full h-28 md:h-32 bg-slate-100 rounded-2xl overflow-hidden mb-4 border border-slate-50 relative">
                   <img 
-                    src="/20.jpeg" // Replace with your actual student or chess piece image
+                    src="/20.jpeg" 
                     alt="Student Mastery"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
