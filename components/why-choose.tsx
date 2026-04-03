@@ -1,153 +1,154 @@
 "use client";
 
 import React from 'react';
-import { Award, TrendingUp, BookOpen, Users } from 'lucide-react';
+
+const BRAND_TEAL = "#008d96";
+
+const benefits = [
+  {
+    title: 'Expert Coaches',
+    description: 'FIDE-rated masters with 10+ years of teaching experience.',
+    icon: '/stra.png', 
+    color: 'bg-amber-400',
+    cardBg: 'bg-amber-50/50',
+    rotation: 'lg:rotate-[-2deg]',
+    offset: 'lg:translate-y-2'
+  },
+  {
+    title: 'Custom Path',
+    description: 'Personalized plans tailored for every unique student.',
+    icon: '/path.png',
+    color: 'bg-violet-500',
+    cardBg: 'bg-violet-50/50',
+    rotation: 'lg:rotate-[3deg]',
+    offset: 'lg:-translate-y-2'
+  },
+  {
+    title: 'Logic Based',
+    description: 'Engineering-led focus on structured critical thinking.',
+    icon: '/logic.png',
+    color: 'bg-emerald-500',
+    cardBg: 'bg-emerald-50/50',
+    rotation: 'lg:rotate-[-1deg]',
+    offset: 'lg:translate-y-4'
+  },
+  {
+    title: 'Global Reach',
+    description: 'Connect with young thinkers from 50+ countries.',
+    icon: '/map.png',
+    color: 'bg-blue-500',
+    cardBg: 'bg-blue-50/50',
+    rotation: 'lg:rotate-[2deg]',
+    offset: 'lg:-translate-y-4'
+  },
+  {
+    title: 'Small Batches',
+    description: 'Limited to 5-6 students per batch for personal attention.',
+    icon: '/small.png',
+    color: 'bg-pink-500',
+    cardBg: 'bg-pink-50/50',
+    rotation: 'lg:rotate-[-3deg]',
+    offset: 'lg:translate-y-2'
+  },
+  {
+    title: 'Proven Success',
+    description: 'Consistent winners in state and national tournaments.',
+    icon: '/sucess.png',
+    color: 'bg-orange-500',
+    cardBg: 'bg-orange-50/50',
+    rotation: 'lg:rotate-[1deg]',
+    offset: 'lg:translate-y-0'
+  },
+];
 
 export default function WhyChooseUsSection() {
-  // Theme Colors (Adapted to Hero Theme: Slate/Indigo/Violet)
-  const colors = {
-    primaryIndigo: '#4F46E5',     // indigo-600
-    textDark: '#0F172A',          // slate-900
-    textMuted: '#475569',         // slate-600
-    cardBg: '#FFFFFF',            // white
-    cardBorder: '#E0E7FF',        // indigo-100
-  };
-
-  const benefits = [
-    {
-      title: 'Experienced Coaches',
-      description: 'Learn from FIDE-rated masters with years of teaching experience.',
-      icon: <Users className="w-6 h-6 md:w-8 md:h-8 text-indigo-600" />, 
-      bgClass: 'bg-indigo-50', 
-      accentClass: 'bg-indigo-500', 
-    },
-    {
-      title: 'Proven Results',
-      description: 'Students achieve higher ratings and win tournaments consistently.',
-      icon: <Award className="w-6 h-6 md:w-8 md:h-8 text-violet-600" />,
-      bgClass: 'bg-violet-50',
-      accentClass: 'bg-violet-500',
-    },
-    {
-      title: 'Structured Curriculum',
-      description: 'Progressive lessons tailored from beginner to grandmaster levels.',
-      icon: <BookOpen className="w-6 h-6 md:w-8 md:h-8 text-blue-600" />,
-      bgClass: 'bg-blue-50',
-      accentClass: 'bg-blue-500',
-    },
-    {
-      title: 'Supportive Community',
-      description: 'Join a vibrant network of passionate chess learners.',
-      icon: <TrendingUp className="w-6 h-6 md:w-8 md:h-8 text-teal-600" />,
-      bgClass: 'bg-teal-50',
-      accentClass: 'bg-teal-500',
-    },
-  ];
-
   return (
-    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-slate-50 font-sans">
+    <section className="py-16 md:py-24 px-4 relative overflow-hidden bg-white font-sans">
       
-      {/* Background Pattern */}
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.03]" 
-        style={{ backgroundImage: 'radial-gradient(#4f46e5 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
+      {/* Connecting Lines Decoration */}
+      <div className="absolute inset-0 z-0 pointer-events-none hidden lg:block">
+        <svg className="w-full h-full opacity-20" viewBox="0 0 1200 800" fill="none">
+          <path 
+            d="M150 300 Q 400 100 600 350 T 1050 300 M100 550 Q 450 750 750 450 T 1100 600" 
+            stroke="#cbd5e1" 
+            strokeWidth="2" 
+            strokeDasharray="10 10" 
+          />
+        </svg>
       </div>
 
-      {/* Abstract Blobs (Adjusted size for mobile) */}
-      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-indigo-200/40 rounded-full blur-3xl filter opacity-50 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-teal-200/40 rounded-full blur-3xl filter opacity-50 pointer-events-none"></div>
-
-      <div className="relative max-w-7xl mx-auto text-center z-10">
+      <div className="relative max-w-6xl mx-auto z-10">
         
-        {/* Headline */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 md:mb-16 text-slate-900 tracking-tight">
-          Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Us?</span>
-        </h2>
-
-        {/* Flex container with wrapping */}
-        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-6 md:gap-8 lg:gap-12 relative">
-          
-          {/* Central Knight Image */}
-          {/* Mobile: Order 1 (Top), Desktop: Order 2 (Center) */}
-          <div className="w-full md:w-auto flex justify-center items-center order-1 md:order-2 group cursor-pointer mb-4 md:mb-0">
-            <div className="relative">
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-indigo-500/20 rounded-full blur-3xl group-hover:bg-violet-500/30 transition-colors duration-500" />
-              
-              <img
-                src="/central.png" 
-                alt="Chess Knight"
-                className="w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 object-contain z-10 relative transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-3 drop-shadow-2xl"
-              />
-            </div>
-          </div>
-
-          {/* Card 1: Experienced Coaches */}
-          {/* Mobile: Order 2, Desktop: Order 1 (Left Top) */}
-          <div className="w-full md:w-80 flex justify-center order-2 md:order-1 md:justify-end">
-            <BenefitCard benefit={benefits[0]} colors={colors} />
-          </div>
-
-          {/* Card 2: Proven Results */}
-          {/* Mobile: Order 3, Desktop: Order 3 (Left Bottom) */}
-          <div className="w-full md:w-80 flex justify-center order-3 md:order-3 md:justify-start">
-            <BenefitCard benefit={benefits[1]} colors={colors} />
-          </div>
-
-          {/* Card 3: Structured Curriculum */}
-          {/* Mobile: Order 4, Desktop: Order 4 (Right Top) */}
-          <div className="w-full md:w-80 flex justify-center order-4 md:order-4 md:justify-end">
-            <BenefitCard benefit={benefits[2]} colors={colors} />
-          </div>
-
-          {/* Card 4: Supportive Community */}
-          {/* Mobile: Order 5, Desktop: Order 5 (Right Bottom) */}
-          <div className="w-full md:w-80 flex justify-center order-5 md:order-5 md:justify-start">
-            <BenefitCard benefit={benefits[3]} colors={colors} />
-          </div>
-
+        {/* Header - Compact Sizes */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-3 tracking-tight">
+            Why <span style={{ color: BRAND_TEAL }}>Choose</span> D’Square?
+          </h2>
+          <p className="text-sm md:text-lg text-slate-500 max-w-xl mx-auto font-bold uppercase tracking-[0.2em] opacity-60">
+            Shaping thinkers, one move at a time
+          </p>
         </div>
+
+        {/* --- GRID: 2 COL MOBILE, 3 COL DESKTOP --- */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+          {benefits.map((benefit, index) => (
+            <div 
+              key={index} 
+              className={`flex justify-center transition-all duration-700 hover:z-20 ${benefit.rotation} ${benefit.offset}`}
+            >
+              <div className="relative w-full group h-full">
+                
+                {/* --- CENTERED TOP BLOB --- */}
+                <div className={`
+                  absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 md:w-14 md:h-14 rounded-full shadow-md z-30
+                  flex items-center justify-center transition-transform group-hover:scale-110
+                  ${benefit.color}
+                `}>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 to-transparent blur-[1px]" />
+                </div>
+
+                {/* --- MAIN CARD --- */}
+                <div className="
+                  bg-white rounded-[1.5rem] md:rounded-[2.5rem] p-3 md:p-6 
+                  shadow-[0_10px_30px_-10px_rgba(0,0,0,0.08)] 
+                  border border-slate-100 transition-all duration-500 
+                  group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.12)]
+                  h-full
+                ">
+                  
+                  {/* TINTED AREA - CENTERED CONTENT */}
+                  <div className={`rounded-[1rem] md:rounded-[2rem] p-5 md:p-8 h-full flex flex-col items-center text-center ${benefit.cardBg}`}>
+                    
+                    {/* Centered Image Icon - User Sizes */}
+                    <div className="mb-4 w-14 h-14 md:w-24 md:h-24 flex items-center justify-center">
+                      <img 
+                        src={benefit.icon} 
+                        alt={benefit.title}
+                        className="w-full h-full object-contain filter drop-shadow-sm"
+                      />
+                    </div>
+
+                    <h3 className="text-base md:text-xl font-black text-slate-800 mb-2 md:mb-3 tracking-tight leading-tight">
+                      {benefit.title}
+                    </h3>
+                    
+                    <p className="text-[10px] md:text-sm text-slate-500 font-bold leading-relaxed max-w-[200px] md:max-w-none">
+                      {benefit.description}
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
+
+      {/* Decorative Blur Elements */}
+      <div className="absolute top-1/4 left-0 w-48 h-48 bg-[#e6f7f8] rounded-full blur-[80px] -z-10 opacity-50" />
+      <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-violet-50 rounded-full blur-[90px] -z-10 opacity-40" />
+
     </section>
-  );
-}
-
-// Reusable Card with Hover Animation
-function BenefitCard({ benefit, colors }: any) {
-  return (
-    <div
-      className="
-        group p-6 md:p-8 rounded-[2rem] shadow-xl shadow-indigo-900/10 flex flex-col items-center text-center border
-        w-full max-w-sm md:max-w-none transition-all duration-300 ease-out relative overflow-hidden
-        hover:scale-105 hover:shadow-2xl hover:shadow-indigo-900/20 hover:-translate-y-2 cursor-pointer bg-white
-      "
-      style={{
-        borderColor: colors.cardBorder,
-      }}
-    >
-      {/* Top Border Accent */}
-      <div className={`absolute top-0 left-0 w-full h-1.5 ${benefit.accentClass}`} />
-
-      {/* Icon Circle */}
-      <div
-        className={`mb-4 md:mb-6 flex items-center justify-center rounded-2xl w-14 h-14 md:w-16 md:h-16 shadow-sm transition-transform duration-300 group-hover:scale-110 ${benefit.bgClass}`}
-      >
-        {benefit.icon}
-      </div>
-
-      <h3
-        className="text-lg md:text-2xl font-bold mb-2 md:mb-3 transition-colors duration-300"
-        style={{ color: colors.textDark }}
-      >
-        {benefit.title}
-      </h3>
-      
-      <p 
-        className="text-sm md:text-base leading-relaxed font-medium" 
-        style={{ color: colors.textMuted }}
-      >
-        {benefit.description}
-      </p>
-    </div>
   );
 }

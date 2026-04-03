@@ -1,114 +1,108 @@
-import React from "react";
-import {
-  PlanetIcon,
-  PaperPlaneIcon,
-  StarIcon,
-  NotebookIcon,
-  RocketIcon,
-} from "./BannerIcon";
+"use client";
 
-const GalleryBanner: React.FC = () => {
+import React from 'react';
+import { ChevronRight, Home, Image as ImageIcon, LayoutGrid, Trophy } from 'lucide-react';
+
+const GalleryHero: React.FC = () => {
+  const brandTeal = "#008d96";
+
   return (
-    <div className="relative w-full bg-[#F3F0FF] overflow-hidden pt-20 pb-0">
-      {/* --- Background Decorative Elements --- */}
+    <section className="relative w-full min-h-screen bg-white overflow-hidden flex flex-col md:flex-row items-center">
+      
+      {/* --- LEFT SIDE: THE FLOATING IMAGE --- */}
+      <div className="relative w-full md:w-1/2 flex items-center justify-center p-6 md:p-12 order-2 md:order-1">
+        {/* 
+            "Free" Image: 
+            - No border, no rounded corners, no shadow.
+            - md:-translate-y-16: Moves the image up on desktop.
+        */}
+        <div className="relative z-10 w-full flex justify-center transform md:-translate-y-0 transition-transform duration-700">
+          <img 
+            src="/gal.png" 
+            alt="D'Square Chess Moments" 
+            className="w-auto h-auto max-h-[70vh] md:max-h-[85vh] object-contain"
+          />
+        </div>
 
-      {/* Small blue dot on the far left */}
-      <div className="absolute top-20 left-4 w-3 h-3 bg-blue-600 rounded-full opacity-80"></div>
-
-      {/* Planet Icon (Top Left) */}
-      <div className="absolute top-12 left-10 md:left-24 opacity-40 transform -rotate-12 pointer-events-none">
-        <PlanetIcon className="w-16 h-16 md:w-24 md:h-24 text-purple-400" />
+        {/* Minimal background watermark to keep the side from looking too empty */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-slate-50 font-black text-[20vw] select-none -z-10 opacity-40">
+          SNAP
+        </div>
       </div>
 
-      {/* Paper Plane (Top Middle/Right) */}
-      <div className="absolute top-16 right-1/3 opacity-40 pointer-events-none hidden md:block">
-        <PaperPlaneIcon className="w-16 h-16 md:w-20 md:h-20 text-purple-400" />
-      </div>
+      {/* --- RIGHT SIDE: THE CONTENT --- */}
+      <div className="relative w-full md:w-1/2 flex items-center bg-white order-1 md:order-2 px-6 md:px-12 lg:px-20 py-12 md:py-0">
+        
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
+             style={{ backgroundImage: `radial-gradient(${brandTeal} 1.2px, transparent 1.2px)`, backgroundSize: '35px 35px' }}>
+        </div>
 
-      {/* Star (Top Right) */}
-      <div className="absolute top-10 right-10 md:right-32 opacity-50 transform rotate-12 pointer-events-none">
-        <StarIcon className="w-12 h-12 md:w-16 md:h-16 text-purple-400" />
-      </div>
+        <div className="relative z-10 w-full max-w-xl">
+          {/* Breadcrumbs */}
+          <nav className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.25em] text-slate-400 mb-6 md:mb-10">
+            <a href="/" className="hover:text-[#008d96] flex items-center gap-1.5 transition-colors group">
+              <Home size={12} className="group-hover:-translate-y-0.5 transition-transform" /> HOME
+            </a>
+            <span className="w-1 h-1 rounded-full bg-[#008d96]"></span>
+            <span className="text-[#008d96]">GALLERY</span>
+          </nav>
 
-      {/* Notebook (Bottom Right - floating above wave) */}
-      <div className="absolute bottom-16 right-20 md:right-48 opacity-40 transform -rotate-12 pointer-events-none hidden sm:block">
-        <NotebookIcon className="w-14 h-14 md:w-16 md:h-16 text-purple-400" />
-      </div>
+          {/* Heading */}
+          <h1 className="text-3xl md:text-5xl font-black text-slate-900 leading-[1.05] tracking-tighter uppercase italic mb-6 md:mb-8">
+            CAPTURED <br />
+            <span style={{ color: brandTeal }} className="not-italic">MOMENTS</span>
+          </h1>
 
-      {/* --- Main Content --- */}
-      <div className="container mx-auto px-6 md:px-12 relative z-10 pb-32 pt-8">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-[#1a1a4b] mb-4">
-          Gallery
-        </h1>
+          {/* Description */}
+          <div className="relative mb-10 md:mb-12">
+            <p className="text-slate-500 text-sm md:text-xl font-medium leading-relaxed max-w-md">
+              A visual journey through the silent battles, the strategic triumphs, and the 
+              smiles of success that define D’Square Chess Academy.
+            </p>
+            <div className="absolute top-0 -left-6 bottom-0 w-1 bg-gradient-to-b from-[#008d96] to-transparent rounded-full opacity-30"></div>
+          </div>
 
-        <nav className="flex items-center text-base md:text-lg font-medium">
-          <a
-            href="#"
-            className="text-gray-600 hover:text-gray-800 transition-colors"
-          >
-            Home
-          </a>
-          <span className="mx-3 text-gray-400 text-sm">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+          {/* Gallery Categories Preview */}
+          <div className="flex flex-wrap gap-4 mb-10">
+             <div className="flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-xl border border-slate-100">
+                <Trophy size={16} className="text-orange-500" />
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-700">Tournaments</span>
+             </div>
+             <div className="flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-xl border border-slate-100">
+                <ImageIcon size={16} className="text-[#008d96]" />
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-700">Certificates</span>
+             </div>
+             <div className="flex items-center gap-2 px-4 py-2 bg-slate-50 rounded-xl border border-slate-100">
+                <LayoutGrid size={16} className="text-blue-500" />
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-700">Events</span>
+             </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="flex flex-col sm:flex-row items-center gap-5">
+            <button 
+              className="w-full sm:w-auto px-10 py-4 md:py-5 bg-[#008d96] text-white rounded-2xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 shadow-lg shadow-[#008d96]/30 hover:shadow-[#008d96]/50 hover:-translate-y-1 active:scale-95 transition-all"
             >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </span>
-          <span className="text-blue-600">Gallery</span>
-        </nav>
+              BROWSE ALL PHOTOS
+              <ChevronRight size={18} strokeWidth={3} />
+            </button>
+          </div>
+        </div>
+
+        {/* Decorative Side Progress Bar */}
+        <div className="absolute top-0 right-0 bottom-0 w-1.5 bg-slate-50 hidden md:block">
+           <div className="h-[60%] w-full bg-[#008d96] rounded-b-full shadow-[0_0_15px_rgba(0,141,150,0.1)]"></div>
+        </div>
+        
+        {/* Background Page Number */}
+        <div className="absolute bottom-12 right-12 hidden lg:block -z-10">
+           <p className="text-[140px] font-black text-slate-50 leading-none select-none tracking-tighter">05</p>
+        </div>
       </div>
 
-      {/* --- Wave Separator --- */}
-      <div className="absolute bottom-0 left-0 w-full leading-none">
-        <svg
-          className="relative block w-full h-[60px] md:h-[80px]"
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            className="fill-[#F3F0FF] hidden"
-          ></path>
-          {/* 
-             The image shows a specific repeating sine wave pattern. 
-             Let's use a path that closely mimics the "scalloped" look.
-           */}
-          <path
-            d="M0,60 C150,120 300,0 450,60 C600,120 750,0 900,60 C1050,120 1200,0 1350,60 V120 H0 V60Z"
-            fill="#ffffff"
-            transform="scale(1, 0.8) translate(0, 30)"
-          ></path>
-          {/* Let's try a cleaner more symmetrical wave path */}
-          <path
-            d="M0,120 C200,100 300,40 400,60 C550,90 650,110 800,80 C950,50 1050,20 1200,60 V120 H0 Z"
-            fill="#ffffff"
-            className="hidden"
-          ></path>
-          <path
-            d="M0,40 Q100,90 200,40 T400,40 T600,40 T800,40 T1000,40 T1200,40 V120 H0 Z"
-            fill="#ffffff"
-            transform="scale(1.5, 1)"
-          ></path>
-        </svg>
-      </div>
-
-      {/* --- Rocket (Bottom Left - Overlapping the wave/white area) --- */}
-      <div className="absolute bottom-4 left-10 md:left-24 z-20">
-        <RocketIcon className="w-8 h-8 md:w-10 md:h-10 text-green-500 transform -rotate-45" />
-      </div>
-    </div>
+    </section>
   );
 };
 
-export default GalleryBanner;
+export default GalleryHero;

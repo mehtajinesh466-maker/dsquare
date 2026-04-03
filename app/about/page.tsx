@@ -7,17 +7,20 @@ import AchievementsSection from "@/components/ui/achievements";
 import TeamSection from "@/components/ui/team-section";
 import FinalCTASection from "@/components/ui/final-cta-section";
 import DemoBookingCTA from "@/components/demo-booking-cta";
+import PhilosophySection from "@/components/philoshophy";
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-14">
       <AboutBanner />
       <AboutSection />
-      <AchievementsSection />
+      <PhilosophySection/>
+      {/* <AchievementsSection /> */}
       <TeamSection />
-      <CoachCtaSection />
-      <FaqSection />
+      {/* <CoachCtaSection /> */}
+      
       <TestimonialsSection />
+      <FaqSection />
       <DemoBookingCTA />
     </div>
   );

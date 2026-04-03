@@ -1,154 +1,209 @@
-"use client"; // Required for state and events
+"use client";
 
 import React, { useState } from 'react';
-import { PhoneIcon, MailIcon, MapPinIcon, ArrowRightIcon } from './BannerIcon';
+import { motion } from 'framer-motion';
+import { 
+  Phone, Mail, MapPin, Send, 
+  MessageSquare, Globe, ArrowUpRight, 
+  ShieldCheck, Brain, Instagram, Linkedin, 
+  Facebook, Youtube, Trophy, ExternalLink
+} from 'lucide-react';
 
 const ContactSection: React.FC = () => {
-  // 1. State to manage form inputs
   const [formData, setFormData] = useState({
-    fatherName: "",
+    parentName: "",
     lastName: "",
-    kidName: "",
+    studentName: "",
     email: "",
     phone: "",
-    waNumber: "",
     comment: "",
   });
 
-  // 2. Handle input changes
+  const BRAND_TEAL = "#008d96";
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // 3. Handle WhatsApp Submission
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Construct the message
-    const message = `*New Contact Inquiry - Checkmate Sensei Academy*%0A` +
-      `-------------------------------------------%0A` +
-      `*Parent Name:* ${formData.fatherName} ${formData.lastName}%0A` +
-      `*Kid Name:* ${formData.kidName}%0A` +
-      `*Email:* ${formData.email}%0A` +
-      `*Phone:* ${formData.phone}%0A` +
-      `*WhatsApp:* ${formData.waNumber}%0A` +
-      `*Comment:* ${formData.comment}%0A` +
-      `-------------------------------------------`;
-
-    const whatsappUrl = `https://wa.me/918130627389?text=${message}`;
-
-    // Open WhatsApp in new tab
-    window.open(whatsappUrl, "_blank");
+    const message = `*New Inquiry - D'Square Academy*%0A` +
+      `--------------------------%0A` +
+      `*Parent:* ${formData.parentName} ${formData.lastName}%0A` +
+      `*Student:* ${formData.studentName}%0A` +
+      `*Contact:* ${formData.phone}%0A` +
+      `*Message:* ${formData.comment}`;
+    window.open(`https://wa.me/918130627389?text=${message}`, "_blank");
   };
 
-  return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      {/* Decorative background circle */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50 rounded-full blur-3xl opacity-50 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+  const socialLinks = [
+    { name: "Instagram", icon: Instagram, handle: "@dsquarechessacademy", color: "#E1306C", url: "https://www.instagram.com/dsquarechessacademy?igsh=MXMwaDZieGhqaHpiNQ==" },
+    { name: "Facebook", icon: Facebook, handle: "D’Square Chess Academy", color: "#1877F2", url: "#" },
+  ];
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row rounded-[40px] overflow-hidden shadow-2xl bg-white">
+  const platforms = [
+    { name: "Chess.com", handle: "D’Square Academy", url: "#" },
+    { name: "Lichess.org", handle: "D’Square Academy", url: "#" },
+  ];
+
+  return (
+    <section className="py-20 md:py-32 bg-[#fafcfc] relative overflow-hidden font-sans">
+      
+      {/* --- BACKGROUND DECOR --- */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-[#008d96]/5 rounded-full blur-[120px]" />
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#008d96 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 relative z-10 max-w-7xl">
+        
+        {/* --- SECTION HEADER --- */}
+        <div className="mb-16 md:mb-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <span className="w-12 h-[2px] bg-[#008d96]"></span>
+            <span className="text-[#008d96] font-black uppercase tracking-[0.3em] text-xs">Let's Connect</span>
+          </motion.div>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 leading-none tracking-tight">
+            Contact <span style={{ color: BRAND_TEAL }} className="italic">D’Square</span> <br />
+            Academy
+          </h2>
+          <p className="mt-6 text-slate-500 font-medium max-w-xl text-lg">
+            Whether you have questions about classes, curriculum, or enrollment, feel free to reach out—we’d love to hear from you!
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-24">
           
-          {/* LEFT COLUMN: CONTACT INFO */}
-          <div className="w-full lg:w-[40%] bg-[#1a1a4b] p-12 text-white flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute inset-0 opacity-10 pointer-events-none">
-              <svg width="100%" height="100%">
-                <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" />
-                </pattern>
-                <rect width="100%" height="100%" fill="url(#grid-pattern)" />
-              </svg>
+          {/* --- LEFT: INFO CARDS --- */}
+          <div className="lg:col-span-4 space-y-6">
+            
+            <div className="group p-8 bg-white border border-slate-100 rounded-[2rem] shadow-[0_20px_50px_rgba(0,141,150,0.05)] hover:shadow-[0_20px_50px_rgba(0,141,150,0.12)] transition-all duration-500 relative overflow-hidden">
+              <Phone className="text-[#008d96] mb-6" size={32} />
+              <h4 className="text-lg font-black text-slate-900 mb-2">Call / WhatsApp</h4>
+              <p className="text-slate-500 text-sm font-medium mb-4 leading-relaxed">Quick support within 24 hours.</p>
+              <a href="tel:+918130627389" className="inline-flex items-center gap-2 text-[#008d96] font-black text-sm uppercase tracking-wider group-hover:gap-4 transition-all">
+                +91 81306 27389 <ArrowUpRight size={18} />
+              </a>
             </div>
 
-            <div className="relative z-10">
-              <h3 className="text-3xl font-bold mb-6">Get In Touch</h3>
-              <p className="text-blue-200 mb-12 leading-relaxed">
-                Have questions about our chess programs? We're here to help you guide your child's journey to mastery.
-              </p>
+            <div className="group p-8 bg-white border border-slate-100 rounded-[2rem] shadow-[0_20px_50px_rgba(0,141,150,0.05)] hover:shadow-[0_20px_50px_rgba(0,141,150,0.12)] transition-all duration-500 relative overflow-hidden">
+              <Mail className="text-orange-500 mb-6" size={32} />
+              <h4 className="text-lg font-black text-slate-900 mb-2">Email Academy</h4>
+              <p className="text-slate-500 text-sm font-medium mb-4 leading-relaxed">For curriculum & enrollments.</p>
+              <a href="mailto:info@dsquarechess.com" className="inline-flex items-center gap-2 text-orange-600 font-black text-sm uppercase tracking-wider group-hover:gap-4 transition-all">
+                info@dsquarechess.com <ArrowUpRight size={18} />
+              </a>
+            </div>
 
-              <div className="space-y-8">
-                <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-yellow-400 group-hover:text-[#1a1a4b] transition-all">
-                    <PhoneIcon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-blue-300 uppercase mb-1">Phone</span>
-                    <p className="text-lg font-medium">+91 81306 27389</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-yellow-400 group-hover:text-[#1a1a4b] transition-all">
-                    <MailIcon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-blue-300 uppercase mb-1">Email</span>
-                    <p className="text-lg font-medium break-all">checkmatesensei@gmail.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-yellow-400 group-hover:text-[#1a1a4b] transition-all">
-                    <MapPinIcon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-bold text-blue-300 uppercase mb-1">Location</span>
-                    <p className="text-lg font-medium leading-snug">
-                      Plot No-915A, Niti Khand-1<br />
-                      Indirapuram, Ghaziabad<br />
-                      India
-                    </p>
-                  </div>
+            <div className="p-8 bg-[#0a191a] rounded-[2rem] text-white relative overflow-hidden">
+              <div className="relative z-10 flex items-start gap-4">
+                <MapPin className="text-[#00b4bf] shrink-0" size={24} />
+                <div>
+                  <h4 className="font-black text-sm uppercase tracking-widest mb-1">Our Centers</h4>
+                  <p className="text-slate-400 text-sm leading-relaxed font-bold">Pune & Kharadi</p>
+                  <p className="text-slate-500 text-xs mt-1 font-medium">Maharashtra, India</p>
                 </div>
               </div>
             </div>
-            
-            <div className="relative z-10 mt-12 pt-8 border-t border-white/10">
-              <p className="text-sm text-blue-300 italic">"Chess is the gymnasium of the mind."</p>
-            </div>
+
           </div>
 
-          {/* RIGHT COLUMN: FORM */}
-          <div className="w-full lg:w-[60%] p-8 md:p-12 bg-white">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#1a1a4b] mb-2">Send Us a Message</h3>
-            <p className="text-gray-500 text-sm mb-8">Required fields are marked *</p>
-
-            {/* Added onSubmit and connected inputs via name/value/onChange */}
-            <form onSubmit={handleWhatsAppSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input name="fatherName" value={formData.fatherName} onChange={handleChange} className="input" placeholder="Father Name *" required />
-                <input name="lastName" value={formData.lastName} onChange={handleChange} className="input" placeholder="Last Name *" required />
-                <input name="kidName" value={formData.kidName} onChange={handleChange} className="input md:col-span-2" placeholder="Kid Full Name *" required />
-                <input name="email" type="email" value={formData.email} onChange={handleChange} className="input" placeholder="Email *" required />
-                <input name="phone" type="tel" value={formData.phone} onChange={handleChange} className="input" placeholder="Phone *" required />
-                <input name="waNumber" type="tel" value={formData.waNumber} onChange={handleChange} className="input md:col-span-2" placeholder="WhatsApp Number *" required />
-                <textarea name="comment" value={formData.comment} onChange={handleChange} className="input md:col-span-2 resize-none" rows={4} placeholder="Comment (Optional)" />
+          {/* --- RIGHT: FORM --- */}
+          <div className="lg:col-span-8 bg-white p-8 md:p-16 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.04)] border border-slate-50">
+            <h4 className="text-xl font-black text-slate-900 mb-10 flex items-center gap-2">
+               <MessageSquare size={20} className="text-[#008d96]" /> Quick Inquiry
+            </h4>
+            <form onSubmit={handleWhatsAppSubmit} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                <div className="relative group">
+                  <input name="parentName" value={formData.parentName} onChange={handleChange} required className="w-full py-3 bg-transparent border-b-2 border-slate-100 outline-none focus:border-[#008d96] transition-all font-bold text-slate-900 peer" placeholder=" " />
+                  <label className="absolute left-0 top-3 text-slate-400 font-black text-xs uppercase tracking-widest transition-all pointer-events-none peer-focus:-top-4 peer-focus:text-[#008d96] peer-[:not(:placeholder-shown)]:-top-4">First Name</label>
+                </div>
+                <div className="relative group">
+                  <input name="lastName" value={formData.lastName} onChange={handleChange} required className="w-full py-3 bg-transparent border-b-2 border-slate-100 outline-none focus:border-[#008d96] transition-all font-bold text-slate-900 peer" placeholder=" " />
+                  <label className="absolute left-0 top-3 text-slate-400 font-black text-xs uppercase tracking-widest transition-all pointer-events-none peer-focus:-top-4 peer-focus:text-[#008d96] peer-[:not(:placeholder-shown)]:-top-4">Last Name</label>
+                </div>
+                <div className="md:col-span-2 relative group">
+                  <input name="studentName" value={formData.studentName} onChange={handleChange} required className="w-full py-3 bg-transparent border-b-2 border-slate-100 outline-none focus:border-[#008d96] transition-all font-bold text-slate-900 peer" placeholder=" " />
+                  <label className="absolute left-0 top-3 text-slate-400 font-black text-xs uppercase tracking-widest transition-all pointer-events-none peer-focus:-top-4 peer-focus:text-[#008d96] peer-[:not(:placeholder-shown)]:-top-4">Student Full Name</label>
+                </div>
+                <div className="relative group">
+                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="w-full py-3 bg-transparent border-b-2 border-slate-100 outline-none focus:border-[#008d96] transition-all font-bold text-slate-900 peer" placeholder=" " />
+                  <label className="absolute left-0 top-3 text-slate-400 font-black text-xs uppercase tracking-widest transition-all pointer-events-none peer-focus:-top-4 peer-focus:text-[#008d96] peer-[:not(:placeholder-shown)]:-top-4">WhatsApp Number</label>
+                </div>
+                <div className="md:col-span-2 relative group">
+                  <textarea name="comment" value={formData.comment} onChange={handleChange} rows={3} className="w-full py-3 bg-transparent border-b-2 border-slate-100 outline-none focus:border-[#008d96] transition-all font-bold text-slate-900 resize-none peer" placeholder=" " />
+                  <label className="absolute left-0 top-3 text-slate-400 font-black text-xs uppercase tracking-widest transition-all pointer-events-none peer-focus:-top-4 peer-focus:text-[#008d96] peer-[:not(:placeholder-shown)]:-top-4">Your Message</label>
+                </div>
               </div>
-
               <button
                 type="submit"
-                className="group bg-yellow-400 text-[#1a1a4b] hover:bg-yellow-300 font-bold py-4 px-10 rounded-xl flex items-center gap-3 transition-all shadow-lg hover:shadow-yellow-400/50 hover:-translate-y-1"
+                style={{ backgroundColor: BRAND_TEAL }}
+                className="group w-full md:w-auto px-12 py-5 text-white font-black rounded-2xl flex items-center justify-center gap-3 transition-all shadow-xl shadow-[#008d96]/30 hover:-translate-y-1 active:scale-95 uppercase tracking-[0.2em] text-xs"
               >
-                Submit to WhatsApp
-                <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                Send Message
+                <MessageSquare size={18} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
           </div>
         </div>
 
-        {/* MAP SECTION */}
-        <div className="mt-16">
-          <h4 className="text-xl font-bold text-[#1a1a4b] mb-6 text-center">Our Location</h4>
-          <div className="w-full h-[320px] rounded-3xl overflow-hidden shadow-xl border">
-            <iframe
-              title="Indirapuram Location"
-              src="https://www.google.com/maps?q=Plot%20No-915A,%20Niti%20Khand%201,%20Indirapuram&output=embed"
-              className="w-full h-full border-0"
-              loading="lazy"
-            />
+        {/* --- DIGITAL CONNECT SECTION --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+          
+          {/* Socials */}
+          <div className="space-y-6">
+             <h4 className="text-xl font-black text-slate-900 uppercase tracking-tighter flex items-center gap-3">
+               <Globe size={20} className="text-[#008d96]" /> Global Presence
+             </h4>
+             <div className="grid grid-cols-2 gap-4">
+                {socialLinks.map((social) => (
+                  <a key={social.name} href={social.url} className="p-4 bg-white border border-slate-100 rounded-2xl flex items-center gap-3 hover:border-[#008d96] transition-all group">
+                    <social.icon size={20} style={{ color: social.color }} />
+                    <div>
+                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{social.name}</p>
+                      <p className="text-xs font-bold text-slate-700">{social.handle}</p>
+                    </div>
+                  </a>
+                ))}
+             </div>
           </div>
+
+          {/* Playing Platforms */}
+          <div className="space-y-6">
+             <h4 className="text-xl font-black text-slate-900 uppercase tracking-tighter flex items-center gap-3">
+               <Trophy size={20} className="text-orange-500" /> Play & Learn
+             </h4>
+             <div className="grid grid-cols-2 gap-4">
+                {platforms.map((platform) => (
+                  <a key={platform.name} href={platform.url} className="p-4 bg-slate-900 rounded-2xl flex items-center justify-between group hover:bg-[#008d96] transition-all">
+                    <div>
+                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-white/70">Platform</p>
+                      <p className="text-sm font-bold text-white">{platform.name}</p>
+                    </div>
+                    <ExternalLink size={16} className="text-[#00b4bf] group-hover:text-white" />
+                  </a>
+                ))}
+             </div>
+          </div>
+
         </div>
+
+        {/* --- MAP --- */}
+        <div className="w-full h-[450px] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white p-1">
+          <iframe
+            title="D'Square Academy Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15131.792510255956!2d73.9317544!3d18.5312389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c147b8b20739%3A0x350493b2a2b3765e!2sKharadi%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1711411200000!5m2!1sen!2sin"
+            className="w-full h-full rounded-[2.5rem] border-0"
+            loading="lazy"
+          />
+        </div>
+
       </div>
     </section>
   );

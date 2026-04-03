@@ -1,168 +1,231 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { ChevronRight, Star, MessageCircle, ArrowUp } from "lucide-react";
+import { CheckCircle2, ArrowRight, Clock, Target, Trophy, Star, Crown, Flame, Sparkles, BookOpen } from "lucide-react";
 
-// --- Course Data ---
-const courses = [
+const courseData = [
   {
+    level: "Level 1",
     title: "Beginner",
-    stars: 1,
-    topics: [
-      "Chess Board, Pieces and Notation",
-      "Opening principles",
-      "Principle of developments",
-      "Forks, Pins, Double Check, Skewer etc.",
-      "Checks and threats",
-      "King safety",
-      "Strategy (basics)",
-      "Stalemate",
-      "Fools Mate and Scholars Mate",
+    duration: "4 Months",
+    image: "/101.jpg",
+    description: "Designed for students who are completely new to chess. This course builds a strong foundation from scratch.",
+    features: [
+      "Rules of chess & piece movements",
+      "Basic checkmates & objectives",
+      "Intro to openings & endgames",
+      "Basic tactics (fork, pin, skewer)",
+      "Board vision & planning"
     ],
+    outcome: "Play complete games confidently",
+    theme: "#008d96", // Teal
+    bgLight: "bg-teal-50/50",
+    icon: <Star size={18} />
   },
   {
-    title: "Intermediate",
-    stars: 2,
-    topics: [
-      "Imagination in chess",
-      "Middlegame plans",
-      "Zugzwang ideas!",
-      "Opposition and Distant Opposition",
-      "Bishop vs Knight (Open and closed positions)",
-      "Learning from the mistake series",
-      "Playing Sessions with Deep Analysis",
-      "Smothered Mate, Boden’s Mate",
+    level: "Level 2",
+    title: "Advanced Beginner",
+    duration: "4-5 Months",
+    image: "/102.jpg",
+    description: "Students apply knowledge in real games and develop tactical awareness through structured play.",
+    features: [
+      "Stronger opening principles",
+      "Tactical combos in real games",
+      "Basic positional understanding",
+      "Game analysis & identification",
+      "Improved match-play thinking"
     ],
+    outcome: "Structured games & tactical awareness",
+    theme: "#0ea5e9", // Sky
+    bgLight: "bg-sky-50/50",
+    icon: <Target size={18} />
   },
   {
+    level: "Level 3",
+    title: "Intermediate 1",
+    duration: "5-6 Months",
+    image: "/103.webp",
+    description: "Focused on preparing students for competitive tournaments and reaching sub-1500 ratings.",
+    features: [
+      "Advanced tactical patterns",
+      "Tournament strategies",
+      "Time management skills",
+      "Opening repertoire basics",
+      "Better game execution"
+    ],
+    outcome: "Ready for sub-1500 tournaments",
+    theme: "#6366f1", // Indigo
+    bgLight: "bg-indigo-50/50",
+    icon: <Trophy size={18} />
+  },
+  {
+    level: "Level 4",
+    title: "Intermediate 2",
+    duration: "6 Months",
+    image: "/104.jpg",
+    description: "Prepares students for offline rated tournaments and provides deeper strategic game understanding.",
+    features: [
+      "Opening prep strategies",
+      "Middlegame & positional play",
+      "Endgame techniques",
+      "Tournament mindset",
+      "Competitive environment prep"
+    ],
+    outcome: "Compete in offline rated events",
+    theme: "#a855f7", // Purple
+    bgLight: "bg-purple-50/50",
+    icon: <Crown size={18} />
+  },
+  {
+    level: "Level 5",
     title: "Advanced",
-    stars: 3,
-    topics: [
-      "Prophylaxis Thinking",
-      "Static and dynamic advantages and how to play with or against it!",
-      "Playing Against Different Openings",
-      "Opening Theory and Novelties",
-      "Endgame studies!",
-      "All sorts of pawn structure with modern theory!",
-      "Initiative and critical points",
+    duration: "Ongoing",
+    image: "/105.jpg",
+    description: "For serious players aiming to increase rating and compete at high professional levels.",
+    features: [
+      "Advanced opening repertoires",
+      "Deep game analysis",
+      "Opponent-based strategies",
+      "Psychological edge",
+      "Professional understanding"
     ],
+    outcome: "High-level rating & mastery",
+    theme: "#1e293b", // Slate
+    bgLight: "bg-slate-100/50",
+    icon: <Flame size={18} />
+  },
+  {
+    level: "Special",
+    title: "Personal (1:1)",
+    duration: "Flexible",
+    image: "/106.webp",
+    description: "A highly personalized training program designed to accelerate progress based on your unique goals.",
+    features: [
+      "Customized training plan",
+      "Deep analysis of personal games",
+      "Targeted improvement areas",
+      "Flexible tactical focus",
+      "Goal-oriented coaching"
+    ],
+    outcome: "Maximum growth potential",
+    theme: "#f97316", // Orange
+    bgLight: "bg-orange-50/50",
+    icon: <Sparkles size={18} />
   },
 ];
 
 export default function CoursesSection() {
-  
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const BRAND_TEAL = "#008d96";
 
   return (
-    <section className="relative bg-white py-8 lg:py-12 font-sans overflow-hidden">
-      
-      {/* --- Floating Decorative Dot (Purple) --- */}
-
-      <div className="container mx-auto px-4 max-w-7xl relative z-10">
+    <section className="py-20 bg-white font-sans overflow-hidden">
+      <div className="container mx-auto px-6 max-w-7xl">
         
         {/* --- Header --- */}
-        <div className="mb-16">
-          <div className="inline-block px-5 py-1.5 rounded-full bg-[#EBE9FE] mb-4">
-            <span className="text-[#5C4EE5] font-semibold text-sm">Courses Fees</span>
+        <div className="text-center max-w-3xl mx-auto mb-20 relative">
+          <div className="absolute -top-10 left-1/2 -translate-x-1/2 text-slate-50 font-black text-6xl md:text-[10rem] select-none -z-10 tracking-tighter opacity-60">
+            CURRICULUM
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-[#0F172A]">
-            Explore Courses
+          
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-slate-50 border border-slate-100 text-slate-500 font-black text-[10px] uppercase tracking-[0.2em] mb-4 shadow-sm">
+            <BookOpen size={12} className="text-[#008d96]" />
+            Structured Learning Path
+          </div>
+          
+          <h2 className="text-4xl md:text-6xl font-[1000] text-slate-900 leading-[1] tracking-tighter uppercase italic mb-6">
+            CHAMPIONSHIP <br />
+            <span style={{ color: BRAND_TEAL }} className="not-italic">LEVELS.</span>
           </h2>
+          
+          <p className="text-slate-500 text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto">
+            From absolute basics to advanced competitive play, our logic-driven modules are designed to build champions step-by-step.
+          </p>
         </div>
 
-        {/* --- Cards Grid --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {courses.map((course, idx) => (
+        {/* --- Grid --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+          {courseData.map((course, idx) => (
             <div 
               key={idx} 
-              className="relative bg-white rounded-[20px] border border-gray-200 p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
+              className="group relative flex flex-col h-full bg-white rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2"
             >
-              
-              {/* --- Floating Stars --- */}
-              <div className="absolute -top-6 left-8 flex gap-1">
-                {[...Array(course.stars)].map((_, i) => (
-                  <div key={i} className="relative">
-                     {/* SVG Star Shape matching the yellow icon style */}
-                     <svg 
-                       width="50" 
-                       height="50" 
-                       viewBox="0 0 50 50" 
-                       fill="none" 
-                       className={`drop-shadow-md transform ${i % 2 === 0 ? '-rotate-6' : 'rotate-12'}`}
-                     >
-                        <path 
-                          d="M25 2 L32 17 L48 19 L36 30 L39 46 L25 38 L11 46 L14 30 L2 19 L18 17 Z" 
-                          fill="#FFC107" 
-                          stroke="none"
-                        />
-                     </svg>
-                  </div>
-                ))}
+              {/* Image Section */}
+              <div className="relative h-56 w-full mb-8">
+                <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-black/5 border border-slate-50">
+                   <img 
+                    src={course.image} 
+                    alt={course.title} 
+                    className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40" />
+                </div>
+                
+                {/* Floating Level Label */}
+                <div className="absolute -bottom-6 left-8 flex items-center gap-3 bg-white p-2 rounded-2xl shadow-xl border border-slate-50">
+                   <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-md" style={{ backgroundColor: course.theme }}>
+                      {course.icon}
+                   </div>
+                   <div className="pr-4">
+                      <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">{course.level}</p>
+                      <p className="text-[11px] font-black text-slate-900 uppercase tracking-tighter">Certified Course</p>
+                   </div>
+                </div>
+
+                {/* Duration Badge */}
+                <div className="absolute top-5 right-5 px-4 py-2 rounded-full bg-black/30 backdrop-blur-md border border-white/20 text-white text-[10px] font-black uppercase tracking-widest">
+                  <span className="flex items-center gap-2"><Clock size={12} /> {course.duration}</span>
+                </div>
               </div>
 
-              {/* --- Card Content --- */}
-              <div className="mt-6 flex-grow">
-                <h3 className="text-2xl text-gray-500 font-medium mb-8">
+              {/* Content Body */}
+              <div className="flex-grow px-4 flex flex-col">
+                <h3 className="text-2xl font-black text-slate-900 mb-3 tracking-tighter uppercase italic group-hover:text-[#008d96] transition-colors">
                   {course.title}
                 </h3>
+                
+                <p className="text-slate-500 text-[14px] font-medium leading-relaxed mb-6">
+                  {course.description}
+                </p>
 
-                <ul className="space-y-5">
-                  {course.topics.map((topic, i) => (
-                    <li key={i} className="flex items-start gap-4">
-                      {/* Yellow Circle Arrow Icon */}
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#FFC107] flex items-center justify-center mt-0.5 shadow-sm">
-                        <ChevronRight className="w-4 h-4 text-[#0F172A] stroke-[3]" />
-                      </div>
-                      {/* Topic Text */}
-                      <span className="text-[#505D6F] text-[15px] leading-relaxed font-normal">
-                        {topic}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Features List */}
+                <div className={`${course.bgLight} rounded-[2rem] p-6 mb-0 border border-slate-100/30 flex-grow`}>
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">What You Will Learn</p>
+                  <ul className="space-y-3.5">
+                    {course.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <div className="mt-1 w-4 h-4 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: `${course.theme}20` }}>
+                           <CheckCircle2 size={11} style={{ color: course.theme }} />
+                        </div>
+                        <span className="text-slate-700 font-bold text-[13px] leading-tight tracking-tight">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Footer Section */}
+                <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
+                   <div>
+                      <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest mb-1">Target Outcome</p>
+                      <p className="text-slate-900 font-black text-[11px] uppercase tracking-tight max-w-[180px]">
+                        {course.outcome}
+                      </p>
+                   </div>
+                   
+                   <button 
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center text-white transition-all hover:scale-105 active:scale-90 shadow-lg"
+                    style={{ 
+                      backgroundColor: course.theme,
+                      boxShadow: `0 10px 25px -5px ${course.theme}50`
+                    }}
+                   >
+                     <ArrowRight size={20} strokeWidth={3} />
+                   </button>
+                </div>
               </div>
-
-              {/* --- Action Button (Bottom) --- */}
-              <div className="mt-10">
-                <Link href="https://wa.me/+918130627389" target="_blank">
-                    <button className="w-full bg-[#5C4EE5] cursor-pointer  hover:bg-[#4a3ec2] text-white font-bold py-3.5 px-6 rounded-lg transition-colors shadow-lg shadow-indigo-100">
-                    Register Now
-                    </button>
-                </Link>
-              </div>
-
             </div>
           ))}
         </div>
-
       </div>
-
-      {/* --- FIXED FLOATING BUTTONS --- */}
-
-      {/* WhatsApp Chat (Bottom Left) */}
-      {/* <div className="fixed bottom-6 left-6 z-50">
-        <a 
-          href="https://wa.me/123456789" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="bg-[#25D366] hover:bg-[#20b858] text-white px-5 py-2.5 rounded-full shadow-lg flex items-center gap-2 font-semibold transition-transform hover:scale-105"
-        >
-          <MessageCircle className="w-5 h-5 fill-white" />
-          <span>Chat with us</span>
-        </a>
-      </div> */}
-
-      {/* Scroll to Top (Bottom Right) */}
-      <button 
-        onClick={scrollToTop}
-        className="fixed bottom-6 right-6 z-50 w-10 h-10 bg-[#5C4EE5] hover:bg-[#4a3ec2] rounded-full flex items-center justify-center shadow-lg transition-transform hover:-translate-y-1"
-      >
-        <ArrowUp className="w-5 h-5 text-white" strokeWidth={2.5} />
-      </button>
-
     </section>
   );
 }

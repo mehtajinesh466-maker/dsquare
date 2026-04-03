@@ -1,133 +1,149 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { 
-  ArrowRight, 
-  Trophy, 
-  Star, 
-  Users, 
-  Clock,
-  ShieldCheck,
-  Crown
-} from "lucide-react";
-// 1. Import the global hook
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, Trophy, Globe, Brain, Star, CheckCircle } from "lucide-react";
 import { useDemoModal } from "@/context/DemoContext";
 
-export default function HeroSection() {
-  const [mounted, setMounted] = useState(false);
-  
-  // 2. Initialize the modal trigger
+const BRAND_TEAL = "#008d96";
+
+const hangingPhotos = [
+  { src: "/22.jpeg", angle: -5, clip: "#ef4444" },        // Shown on Mobile
+  { src: "/coach1.jpeg", angle: 2, clip: "#10b981" }, // Shown on Mobile
+  { src: "/21.jpeg", angle: -2, clip: "#3b82f6" }, // Shown on Mobile
+  { src: "/coach2.jpeg", angle: 4, clip: "#f59e0b" },  // Desktop Only
+  { src: "/10.jpeg", angle: -3, clip: "#008d96" }, // Desktop Only
+];
+
+export default function HangingHero() {
   const { openDemoModal } = useDemoModal();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
-    <section className="relative min-h-screen bg-slate-50 flex items-center pt-28 pb-16 lg:pt-32 lg:pb-32 overflow-hidden font-sans">
+    <section className="relative min-h-screen bg-[#fdfdfd] pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
       
-      {/* BACKGROUND ELEMENTS */}
-      <div className="absolute inset-0 z-0 opacity-[0.03]" 
-           style={{ backgroundImage: 'radial-gradient(#4f46e5 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
+      {/* --- TOP: THE HANGING GALLERY --- */}
+      <div className="relative w-full mb-12 md:mb-16 px-2 md:px-4">
+        {/* The Rope (SVG Curve) - Adjusted for responsiveness */}
+        <svg 
+          className="absolute top-2 left-0 w-full h-20 md:h-24 -z-10 text-gray-200" 
+          viewBox="0 0 1440 100" 
+          fill="none" 
+          preserveAspectRatio="none"
+        >
+          <path d="M0 10 Q 720 110 1440 10" stroke="currentColor" strokeWidth="2" strokeDasharray="8 8" />
+        </svg>
+
+        {/* Gallery Container: Uses justify-around for mobile, justify-between for desktop */}
+        <div className="max-w-6xl mx-auto flex justify-around md:justify-between items-start pt-4 gap-1 md:gap-4">
+          {hangingPhotos.map((photo, i) => (
+            <motion.div
+              key={i}
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: i * 0.1, duration: 0.8 }}
+              whileHover={{ rotate: 0, scale: 1.05, y: 5 }}
+              style={{ rotate: `${photo.angle}deg` }}
+              // SHOW 3 ON MOBILE: i < 3 shows always, i >= 3 hidden until medium screens
+              className={`relative group cursor-pointer ${i >= 3 ? "hidden md:block" : "block"}`}
+            >
+              {/* The Clip */}
+              <div 
+                className="absolute -top-2 md:-top-3 left-1/2 -translate-x-1/2 w-2 md:w-3 h-6 md:h-8 rounded-full z-20 shadow-sm"
+                style={{ backgroundColor: photo.clip }}
+              />
+              
+              {/* The Polaroid Frame: Smaller on mobile (w-24), larger on desktop (md:w-48) */}
+              <div className="bg-white p-1.5 pb-6 md:p-3 md:pb-12 shadow-xl border border-gray-100 rounded-sm w-[28vw] max-w-[110px] md:max-w-none md:w-44 lg:w-48 transition-shadow group-hover:shadow-2xl">
+                <div className="aspect-square w-full bg-gray-100 overflow-hidden rounded-sm">
+                  <img 
+                    src={photo.src} 
+                    alt="Chess Student" 
+                    className="w-full h-full object-cover" 
+                  />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
-      <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-indigo-200/40 rounded-full blur-3xl filter opacity-50 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-teal-200/40 rounded-full blur-3xl filter opacity-50 pointer-events-none"></div>
+      {/* --- CENTER: MAIN TEXT CONTENT --- */}
+      <div className="container mx-auto px-4 text-center max-w-4xl relative">
+        
+        {/* Floating Icons (Hidden on Mobile for cleaner UI) */}
+        <div className="absolute -left-20 top-0 opacity-10 animate-pulse hidden lg:block">
+           <Brain size={100} color={BRAND_TEAL} />
+        </div>
+        <div className="absolute -right-20 bottom-0 opacity-10 animate-bounce hidden lg:block">
+           <Trophy size={100} color={BRAND_TEAL} />
+        </div>
 
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          
-          <div className={`lg:col-span-6 space-y-6 lg:space-y-8 transition-all duration-1000 transform text-center lg:text-left ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e6f4f5] text-[#008d96] font-extrabold text-[10px] md:text-xs mb-6 tracking-widest uppercase">
+            <Globe size={14} />
+            Global Training in 50+ Countries
+          </div>
+
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.15] mb-6">
+            Building The Next Generation Of <br className="hidden md:block" />
+            <span style={{ color: BRAND_TEAL }} className="relative inline-block">
+              Global Thinkers
+              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0 5 Q 50 10 100 5" stroke={BRAND_TEAL} strokeWidth="4" fill="none" opacity="0.3" />
+              </svg>
+            </span>
+          </h1>
+
+          <p className="text-base md:text-xl text-slate-600 font-medium max-w-2xl mx-auto mb-10 leading-relaxed px-2 md:px-0">
+            Founded by passionate engineers, we use <span className="text-slate-900 font-bold">logic-driven coaching</span> to help your child master chess, discipline, and critical thinking.
+          </p>
+
+          {/* Value Tags */}
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10 md:mb-12">
+            {[
+              { icon: Brain, text: "Engineering Logic" },
+              { icon: Trophy, text: "FIDE Rated Coaches" },
+              { icon: CheckCircle, text: "Structured Levels" }
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-center gap-2 text-slate-700 font-bold text-xs md:text-base">
+                <item.icon size={16} className="md:w-5 md:h-5" style={{ color: BRAND_TEAL }} />
+                {item.text}
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Button Area */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              onClick={openDemoModal}
+              style={{ backgroundColor: BRAND_TEAL }}
+              className="w-full sm:w-auto px-8 py-4 md:px-10 md:py-5 text-white rounded-2xl font-black text-base md:text-lg shadow-2xl shadow-[#008d96]/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3"
+            >
+              BOOK FREE TRIAL CLASS
+              <ArrowRight className="w-5 h-5" />
+            </button>
             
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white border border-indigo-100 shadow-sm text-indigo-900 font-medium text-xs md:text-sm mb-2 mx-auto lg:mx-0">
-              <span className="relative flex h-2.5 w-2.5 md:h-3 md:w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-indigo-500"></span>
-              </span>
-              New batch starting this weekend!
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-[4rem] leading-[1.1] font-display font-bold text-slate-900 tracking-tight">
-              Turn your little <br/>
-              thinker into a <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600 relative inline-block">
-                Grandmaster
-                <svg className="absolute w-full h-2 md:h-3 -bottom-1 left-0 text-yellow-400/80 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
-                   <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
-                </svg>
-              </span>
-            </h1>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-               {[
-                 { icon: Trophy, text: "FIDE Rated Trainers" },
-                 { icon: Clock, text: "Flexible Schedules" },
-                 { icon: ShieldCheck, text: "Beginner Friendly" },
-                 { icon: Users, text: "Small Batch Size" },
-               ].map((item, idx) => (
-                 <div key={idx} className="flex items-center gap-3 text-slate-700 font-medium text-sm md:text-base justify-center lg:justify-start">
-                   <div className="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
-                      <item.icon size={16} strokeWidth={2.5} />
-                   </div>
-                   {item.text}
-                 </div>
-               ))}
-            </div>
-
-            {/* CTA BUTTON UPDATED: Removed Link, Added onClick */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-2 md:pt-4 justify-center lg:justify-start">
-              <button 
-                onClick={openDemoModal}
-                className="w-full sm:w-auto group relative px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold text-lg shadow-xl shadow-indigo-900/20 hover:shadow-2xl hover:shadow-indigo-900/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  Book Free Trial Class
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-            </div>
-
-            <div className="flex items-center gap-4 pt-2 justify-center lg:justify-start">
-               <div className="flex -space-x-3">
-                 {[1,2,3,4].map(i => (
-                   <img key={i} src={`https://i.pravatar.cc/100?u=chess${i}`} alt="user" className="w-10 h-10 rounded-full border-2 border-white" />
+            {/* Social Proof Mini-Section */}
+            <div className="flex items-center gap-3 py-2">
+               <div className="flex -space-x-2">
+                 {[1,2,3].map(i => (
+                   <img key={i} src={`https://i.pravatar.cc/100?u=student${i}`} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white shadow-sm" alt="User" />
                  ))}
                </div>
-               <div className="text-sm text-left">
-                 <div className="flex text-yellow-500 mb-0.5">
-                   {[1,2,3,4,5].map(i => <Star key={i} size={14} fill="currentColor" />)}
+               <div className="text-left">
+                 <div className="flex text-yellow-400">
+                    {[1,2,3,4,5].map(i => <Star key={i} size={12} fill="currentColor" />)}
                  </div>
-                 <p className="text-slate-600 font-medium"><span className="text-slate-900 font-bold">4.9/5</span> from 2,000+ parents</p>
+                 <p className="text-[10px] md:text-[11px] font-bold text-slate-500 uppercase tracking-tighter">4.9/5 Student Rating</p>
                </div>
             </div>
-
           </div>
-
-          <div className={`lg:col-span-6 relative mt-8 lg:mt-0 transition-all duration-1000 delay-300 transform ${mounted ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-            <div className="relative z-20 bg-white p-2 md:p-3 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl shadow-slate-200/50 border border-slate-100 max-w-[550px] mx-auto rotate-1 hover:rotate-0 transition-transform duration-500">
-               <div className="relative h-[350px] sm:h-[450px] lg:h-[500px] w-full rounded-[1.5rem] md:rounded-[2rem] overflow-hidden">
-                  <img 
-                    src="9.jpeg" 
-                    alt="Happy kid playing chess"
-                    className="object-cover w-full h-full"
-                  />
-                  <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-black/60 to-transparent"></div>
-               </div>
-
-               <div className="absolute right-2 top-4 md:-right-6 md:top-6 bg-white p-3 md:p-4 rounded-xl md:rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-50 flex items-center gap-3 animate-float max-w-[180px] md:max-w-[220px]">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-yellow-100 rounded-full flex items-center justify-center shrink-0">
-                     <Crown className="text-yellow-600 fill-yellow-600" size={20} />
-                  </div>
-                  <div>
-                     <p className="text-[10px] md:text-xs text-slate-500 font-semibold uppercase tracking-wider">Achievement</p>
-                     <p className="text-xs md:text-sm font-bold text-slate-900">National Winner</p>
-                  </div>
-               </div>
-            </div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[105%] h-[90%] border-2 border-dashed border-indigo-200 rounded-[2.5rem] md:rounded-[3rem] -rotate-2 -z-10"></div>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

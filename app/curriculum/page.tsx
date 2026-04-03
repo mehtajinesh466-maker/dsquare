@@ -1,3 +1,4 @@
+import LearningAdvantage from "@/components/adv";
 import DemoBookingCTA from "@/components/demo-booking-cta";
 import CoursesSection from "@/components/events-preview";
 import TestimonialsSection from "@/components/testimonials-section";
@@ -9,6 +10,7 @@ export default function CarriculamPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-14">
       <Curriculum />
       <CoursesSection />
+      <LearningAdvantage/>
       <TeachingMethodologySection />
       <SkillOutcomesSection />
       <TestimonialsSection />

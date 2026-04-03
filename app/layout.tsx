@@ -11,14 +11,14 @@ import BookDemoModal from "@/components/BookDemoModal"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Checkmate Sensei Academy | Professional Chess Coaching for Kids",
+  title: "D'Square Chess Academy | Professional Chess Coaching for Kids",
   description: "Nurturing young minds through strategic chess training. Founded by International Rated Coach Vivek Singh. Expert-led 1:1 and group classes for ages 6-16.",
-  keywords: ["Chess Academy Indirapuram", "Online Chess Classes", "Vivek Singh Chess", "Checkmate Sensei", "FIDE Rated Coaches"],
+  keywords: ["Chess Academy Indirapuram", "Online Chess Classes", "Vivek Singh Chess", "D'Square Chess Academy", "FIDE Rated Coaches"],
   openGraph: {
-    title: "Checkmate Sensei Academy",
+    title: "D'Square Chess Academy",
     description: "Transform your child into a strategic thinker. Book a free demo class today.",
-    url: "https://checkmatesensei.com",
-    siteName: "Checkmate Sensei Academy",
+    url: "https://dsquarechessacademy.com",
+    siteName: "D'Square Chess Academy",
     locale: "en_IN",
     type: "website",
   },
@@ -39,9 +39,9 @@ export default function RootLayout({
         {
           "@context": "https://schema.org",
           "@type": "SportsOrganization",
-          "name": "Checkmate Sensei Academy",
-          "url": "https://checkmatesensei.com",
-          "logo": "https://checkmatesensei.com/logo.png",
+          "name": "D'Square Chess Academy",
+          "url": "https://dsquarechessacademy.com",
+          "logo": "https://dsquarechessacademy.com/logo.png",
           "founder": {
             "@type": "Person",
             "name": "Vivek Singh"
@@ -58,11 +58,11 @@ export default function RootLayout({
             "@type": "ContactPoint",
             "telephone": "+91-8130627389",
             "contactType": "customer service",
-            "email": "checkmatesensei@gmail.com"
+            "email": "dsquarechessacademy@gmail.com"
           },
           "sameAs": [
-            "https://www.facebook.com/checkmatesensei",
-            "https://www.instagram.com/checkmatesensei"
+            "https://www.facebook.com/dsquarechessacademy",
+            "https://www.instagram.com/dsquarechessacademy?igsh=MXMwaDZieGhqaHpiNQ=="
           ]
         }
         `}

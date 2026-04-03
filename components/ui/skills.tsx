@@ -6,181 +6,122 @@ import {
   Target, 
   TrendingUp, 
   Trophy,
-  CheckCircle,
-  Star,
+  CheckCircle2,
   Zap,
-  Clock,
-  Users,
-  ChevronRight
+  ChevronRight,
+  ShieldCheck
 } from 'lucide-react';
 
+const BRAND_TEAL = "#008d96";
+
+const outcomes = [
+  {
+    title: 'Critical Thinking',
+    desc: 'Engineering-led analytical drills that improve logical reasoning.',
+    icon: Brain,
+    improvement: '85% Growth',
+    milestones: ['Pattern Recognition', 'Decision Logic']
+  },
+  {
+    title: 'Strategy Mapping',
+    desc: 'Mastering long-term planning and positional board control.',
+    icon: Target,
+    improvement: '+150 Elo Avg.',
+    milestones: ['Opening Systems', 'Endgame Tech']
+  },
+  {
+    title: 'Performance Rating',
+    desc: 'A systematic approach to climbing global chess rating ladders.',
+    icon: TrendingUp,
+    improvement: 'Consistent Gains',
+    milestones: ['Beginner to Rated', 'Rated to Expert']
+  },
+  {
+    title: 'Tournament Edge',
+    desc: 'Psychological and tactical prep for competitive FIDE play.',
+    icon: Trophy,
+    improvement: '94% Win Rate',
+    milestones: ['Time Management', 'Pressure Control']
+  },
+];
+
 export default function SkillOutcomesSection() {
-  const outcomes = [
-    {
-      title: 'Critical Thinking',
-      description: 'Develop analytical skills and logical reasoning that apply beyond chess.',
-      icon: <Brain className="w-8 h-8" />,
-      color: 'from-purple-500 to-pink-500',
-      milestones: ['Pattern Recognition', 'Decision Making', 'Problem Solving', 'Logical Analysis'],
-      improvement: '85% improvement in 3 months',
-    },
-    {
-      title: 'Strategic Development',
-      description: 'Master long-term planning and positional understanding in games.',
-      icon: <Target className="w-8 h-8" />,
-      color: 'from-blue-500 to-cyan-500',
-      milestones: ['Opening Repertoire', 'Middle Game Plans', 'Endgame Techniques', 'Positional Play'],
-      improvement: '100+ rating points average gain',
-    },
-    {
-      title: 'Rating Improvement',
-      description: 'Systematic approach to climbing rating levels and achieving milestones.',
-      icon: <TrendingUp className="w-8 h-8" />,
-      color: 'from-amber-500 to-orange-500',
-      milestones: ['Beginner to Intermediate', 'Intermediate to Advanced', 'Advanced to Expert', 'Expert to Master'],
-      improvement: 'Consistent 50-100 point gains per quarter',
-    },
-    {
-      title: 'Tournament Readiness',
-      description: 'Comprehensive preparation for competitive play at all levels.',
-      icon: <Trophy className="w-8 h-8" />,
-      color: 'from-emerald-500 to-green-500',
-      milestones: ['Time Management', 'Pressure Handling', 'Tournament Strategy', 'Post-Game Analysis'],
-      improvement: '94% success rate in first tournaments',
-    },
-  ];
-
-  const goals = [
-    {
-      timeframe: '1 Month',
-      achievements: [
-        'Basic rules & piece movement',
-        'Simple checkmates',
-        'Opening principles',
-        'First rated games'
-      ],
-      icon: <Star className="w-6 h-6" />,
-    },
-    {
-      timeframe: '3 Months',
-      achievements: [
-        'Tactical patterns',
-        'Basic endgames',
-        'Opening repertoire',
-        'First tournament participation'
-      ],
-      icon: <Zap className="w-6 h-6" />,
-    },
-    {
-      timeframe: '6 Months',
-      achievements: [
-        'Strategic planning',
-        'Complex endgames',
-        'Tournament success',
-        'Rating milestone achievement'
-      ],
-      icon: <Trophy className="w-6 h-6" />,
-    },
-    {
-      timeframe: '1 Year',
-      achievements: [
-        'Master-level concepts',
-        'Advanced strategy',
-        'Consistent tournament wins',
-        'Coaching certification opportunity'
-      ],
-      icon: <Users className="w-6 h-6" />,
-    },
-  ];
-
   return (
-    <section className="py-14 bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <section className="py-12 md:py-20 bg-white font-sans overflow-hidden border-t border-slate-50">
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
         
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-            Skill Development{" "}
-            <span className="relative">
-              <span className="relative z-10 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Roadmap
-              </span>
-              <span className="absolute -bottom-2 left-0 w-full h-3 bg-gradient-to-r from-amber-200 to-yellow-200 transform rotate-[-1deg] z-0"></span>
-            </span>
-          </h2>
-          
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A clear path from beginner to champion with measurable milestones and 
-            guaranteed progress at every step.
+        {/* --- COMPACT HEADER --- */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-2 mb-3">
+               <ShieldCheck size={16} className="text-[#008d96]" />
+               <span className="text-[#008d96] font-black uppercase tracking-[0.2em] text-[10px]">Measurable Success</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight">
+              Expected <span style={{ color: BRAND_TEAL }}>Skill Outcomes.</span>
+            </h2>
+          </div>
+          <p className="text-slate-500 text-sm md:text-base font-medium max-w-sm leading-relaxed">
+            We deconstruct progress into logical milestones, ensuring guaranteed improvement at every stage of the 64 squares.
           </p>
         </div>
 
-        {/* Outcomes Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {outcomes.map((outcome, index) => (
+        {/* --- OUTCOMES GRID (Compact Bento) --- */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
+          {outcomes.map((item, idx) => (
             <div 
-              key={index}
-              className="group relative bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+              key={idx}
+              className="group p-6 bg-[#fafcfc] rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-[0_20px_50px_rgba(0,141,150,0.1)] transition-all duration-500 flex flex-col h-full"
             >
-              {/* Icon */}
-              <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${outcome.color} flex items-center justify-center text-white mb-6`}>
-                {outcome.icon}
+              <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#008d96] mb-6 group-hover:scale-110 transition-transform">
+                <item.icon size={24} strokeWidth={2} />
               </div>
 
-              {/* Content */}
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                {outcome.title}
-              </h3>
-              <p className="text-gray-600 mb-6 text-sm">
-                {outcome.description}
-              </p>
+              <h3 className="text-xl font-black text-slate-900 mb-2">{item.title}</h3>
+              <p className="text-slate-500 text-xs font-bold leading-relaxed mb-6 flex-grow">{item.desc}</p>
 
-              {/* Milestones */}
-              <div className="space-y-3 mb-6">
-                {outcome.milestones.map((milestone, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{milestone}</span>
+              <div className="space-y-2 mb-6">
+                {item.milestones.map((m, i) => (
+                  <div key={i} className="flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                    <CheckCircle2 size={12} className="text-orange-500" />
+                    {m}
                   </div>
                 ))}
               </div>
 
-              {/* Improvement */}
-              <div className="pt-4 border-t border-gray-100">
-                <p className="text-sm font-semibold text-purple-600">
-                  {outcome.improvement}
-                </p>
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-[11px] font-black text-[#008d96] uppercase tracking-tighter">Avg Impact</span>
+                <span className="text-xs font-bold text-slate-900 bg-white px-2 py-1 rounded-lg shadow-sm">{item.improvement}</span>
               </div>
-
-              {/* Corner Accent */}
-              <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-gray-100 rounded-tr-2xl"></div>
             </div>
           ))}
         </div>
 
-        {/* Timeline Goals */}
+        {/* --- SLIM STATS STRIP (Midnight Teal) --- */}
+        <div className="bg-[#0a191a] rounded-[2rem] p-6 md:p-8 flex flex-wrap justify-center md:justify-between items-center gap-8 md:gap-4 overflow-hidden relative shadow-2xl">
+           {/* Background Decoration */}
+           <div className="absolute right-0 top-0 w-32 h-full bg-[#008d96]/10 skew-x-[-20deg] translate-x-10 pointer-events-none" />
+           
+           {[
+             { val: "3x", label: "Faster Progress", sub: "Engineered logic" },
+             { val: "94%", label: "Success Rate", sub: "Tournament ready" },
+             { val: "150+", label: "Elo Increase", sub: "Avg per 6 months" },
+           ].map((stat, i) => (
+             <div key={i} className="relative z-10 text-center md:text-left flex items-center gap-4">
+                <div className="text-3xl md:text-4xl font-black text-white">{stat.val}</div>
+                <div className="h-8 w-[1px] bg-white/10 hidden md:block" />
+                <div>
+                   <p className="text-orange-400 font-black text-[10px] uppercase tracking-widest leading-none mb-1">{stat.label}</p>
+                   <p className="text-white/40 text-[9px] font-bold uppercase tracking-tighter">{stat.sub}</p>
+                </div>
+             </div>
+           ))}
 
-
-        {/* Stats Banner */}
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-8 md:p-12 text-white">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <p className="text-4xl font-bold mb-2">3x</p>
-              <p className="text-purple-200">Faster Progress</p>
-              <p className="text-sm text-purple-300">Compared to self-learning</p>
-            </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold mb-2">94%</p>
-              <p className="text-purple-200">Success Rate</p>
-              <p className="text-sm text-purple-300">Students achieve their goals</p>
-            </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold mb-2">100+</p>
-              <p className="text-purple-200">Rating Points</p>
-              <p className="text-sm text-purple-300">Average improvement in 6 months</p>
-            </div>
-          </div>
+           <button className="relative z-10 w-full md:w-auto px-8 py-3.5 bg-[#008d96] text-white rounded-xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-[#00b4bf] transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#008d96]/20">
+              Join the Mission <ChevronRight size={14} />
+           </button>
         </div>
+
       </div>
     </section>
   );

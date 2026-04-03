@@ -1,168 +1,178 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowLeft, 
   ArrowRight, 
   Quote, 
   Star, 
-  Sparkles
+  Heart,
+  ChevronRight
 } from "lucide-react";
+import Link from "next/link";
 
 const testimonials = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?q=80&w=200&auto=format&fit=crop", 
     name: "Eshan Gupta",
-    role: "Student",
-    text: "Humble, kind, and truly dedicated. My child loves his classes—clear explanations, great patience, and real passion for chess. Amazing progress in just weeks. Highly recommend Vivek! 👍",
-    rating: 5
+    role: "Parent of Student",
+    text: "Humble, kind, and truly dedicated. My child loves his classes clear explanations, great patience, and real passion for chess. Amazing progress in just weeks.",
+    rating: 5,
+    avatar: "https://i.pravatar.cc/150?u=eshan"
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?q=80&w=200&auto=format&fit=crop", 
-    name: "Shalini kanth",
-    role: "Father of Lavith (Age 7)",
-    text: "Had a great experience with Coach Mr. Vivek Singh sir....He's very passionate towards chess and Hardworking.",
-    rating: 5
+    name: "Shalini Kanth",
+    role: "Mother of Lavith (Age 7)",
+    text: "Had a great experience with Coach Vivek Singh. He's very passionate towards chess and extremely hardworking with small children.",
+    rating: 5,
+    avatar: "https://i.pravatar.cc/150?u=shalini"
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop", 
     name: "Tarun Aggarwal",
-    role: "Father of student",
-    text: "Exceptional. If you want your child should grow fast in chess, you should consider this academy. Vivek sir is expert in teaching chess to kids.",
-    rating: 5
-  },
-  {
-    id: 4,
-    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=200&auto=format&fit=crop", 
-    name: "Aarti Parmar",
-    role: "Mother of Student",
-    text: "Well Planned Classes and Individual detailed attention for over all development of kid.",
-    rating: 5
-  },
+    role: "Father of Student",
+    text: "Exceptional. If you want your child to grow fast in chess, you should consider this academy. The logic-driven approach is visible in my son's game.",
+    rating: 5,
+    avatar: "https://i.pravatar.cc/150?u=tarun"
+  }
 ];
 
-export default function TestimonialsSection() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+const BRAND_TEAL = "#008d96";
 
-  const scroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const { current } = scrollContainerRef;
-      const scrollAmount = 320; // Approx card width
-      if (direction === "left") {
-        current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-      } else {
-        current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      }
-    }
+export default function TestimonialsSection() {
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(0); // 1 for right, -1 for left
+
+  const nextStep = () => {
+    setDirection(1);
+    setIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevStep = () => {
+    setDirection(-1);
+    setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   return (
-    <section className="relative py-16 md:py-24 bg-white font-sans overflow-hidden">
+    <section className="relative py-20 bg-[#f8fafc] overflow-hidden">
       
-      {/* Background Ambience (Light Theme) */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        {/* Soft Indigo Gradient Blob */}
-        <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-indigo-50/80 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
-        {/* Soft Teal Gradient Blob */}
-        <div className="absolute bottom-0 left-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-teal-50/80 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2"></div>
-        {/* Subtle Grid Pattern */}
-        <div className="absolute inset-0 opacity-[0.4]" 
-             style={{ backgroundImage: 'radial-gradient(#cbd5e1 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
-        </div>
-      </div>
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#008d96]/5 rounded-full blur-[100px] -mr-48 -mt-48" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#008d96]/5 rounded-full blur-[100px] -ml-40 -mb-40" />
 
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
         
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-6">
-          <div className="space-y-3 md:space-y-4 max-w-2xl text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs md:text-sm font-medium">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Wall of Love</span>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 leading-tight">
-              Trusted by parents, <br className="hidden md:block"/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">
-                Loved by kids
-              </span>
-            </h2>
+        {/* --- Header --- */}
+        <div className="text-center mb-2">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-100 text-[#008d96] text-xs font-black uppercase tracking-widest mb-6">
+            <Heart size={14} className="fill-[#008d96]" />
+            Wall of Love
           </div>
-          
-          {/* Navigation Buttons (Desktop Only) */}
-          <div className="hidden md:flex gap-4">
-            <button 
-              onClick={() => scroll("left")}
-              className="w-12 h-12 rounded-full border border-slate-200 bg-white text-slate-600 flex items-center justify-center hover:bg-indigo-600 hover:text-white hover:border-indigo-600 shadow-sm transition-all duration-300"
-              aria-label="Scroll left"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            <button 
-              onClick={() => scroll("right")}
-              className="w-12 h-12 rounded-full border border-slate-200 bg-white text-slate-600 flex items-center justify-center hover:bg-indigo-600 hover:text-white hover:border-indigo-600 shadow-sm transition-all duration-300"
-              aria-label="Scroll right"
-            >
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">
+            You're in <span style={{ color: BRAND_TEAL }}>good hands.</span>
+          </h2>
+          <p className="text-slate-500 font-bold">Don't just take our word for it. listen to our global community.</p>
         </div>
 
-        {/* Testimonials Carousel */}
-        <div 
-            ref={scrollContainerRef}
-            className="flex gap-4 md:gap-6 overflow-x-auto pb-8 md:pb-12 px-2 snap-x snap-mandatory -mx-4 md:mx-0"
-            style={{ 
-              scrollbarWidth: 'none', 
-              msOverflowStyle: 'none',
-              scrollPaddingLeft: '1rem' 
-            }}
-        >
-            {testimonials.map((item) => (
-              <div 
-                key={item.id} 
-                className="relative flex-shrink-0 w-[85vw] sm:w-[320px] md:w-[400px] snap-center group pl-4 md:pl-0 first:pl-4 md:first:pl-0 last:pr-4 md:last:pr-0"
+        {/* --- Animated Card Stack --- */}
+        <div className="relative h-[450px] md:h-[400px] flex items-center justify-center">
+          
+          {/* Navigation Arrows */}
+          <button 
+            onClick={prevStep}
+            className="absolute left-0 md:left-4 z-30 p-3 bg-white rounded-full shadow-lg border border-slate-100 text-slate-400 hover:text-[#008d96] transition-all"
+          >
+            <ArrowLeft size={24} />
+          </button>
+
+          <div className="relative w-full max-w-2xl h-full flex items-center justify-center">
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.div
+                key={index}
+                custom={direction}
+                variants={{
+                  enter: (direction: number) => ({
+                    x: direction > 0 ? 200 : -200,
+                    opacity: 0,
+                    scale: 0.8,
+                    rotate: direction > 0 ? 10 : -10
+                  }),
+                  center: {
+                    zIndex: 20,
+                    x: 0,
+                    opacity: 1,
+                    scale: 1,
+                    rotate: 0
+                  },
+                  exit: (direction: number) => ({
+                    zIndex: 0,
+                    x: direction < 0 ? 200 : -200,
+                    opacity: 0,
+                    scale: 0.8,
+                    rotate: direction < 0 ? 10 : -10
+                  })
+                }}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 }
+                }}
+                className="absolute w-full px-4"
               >
-                {/* Card Container */}
-                <div className="h-full bg-white border border-slate-100 p-6 md:p-8 rounded-[2rem] shadow-xl shadow-slate-200/40 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-900/10 hover:border-indigo-100 flex flex-col">
+                {/* The Review Card */}
+                <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-50 relative">
+                  <Quote size={60} className="absolute top-8 left-8 text-slate-50 opacity-10" />
                   
-                  {/* Quote Icon */}
-                  <div className="mb-4 md:mb-6">
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-indigo-50 rounded-2xl flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300 text-indigo-600">
-                      <Quote className="w-5 h-5 md:w-6 md:h-6 fill-current" />
-                    </div>
-                  </div>
+                  <div className="relative z-10">
+                    <p className="text-xl md:text-2xl font-bold text-slate-700 leading-relaxed mb-8 italic">
+                      "{testimonials[index].text}"
+                    </p>
 
-                  {/* Text */}
-                  <p className="text-slate-600 text-base md:text-lg leading-relaxed italic mb-6 md:mb-8 flex-grow font-medium line-clamp-4 md:line-clamp-none">
-                    "{item.text}"
-                  </p>
-
-                  {/* Author Info */}
-                  <div className="flex items-center gap-3 md:gap-4 pt-4 md:pt-6 border-t border-slate-100">
-                    <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border-2 border-slate-100 group-hover:border-indigo-200 transition-colors shrink-0">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-full object-cover"
+                    <div className="flex items-center gap-4">
+                      <img 
+                        src={testimonials[index].avatar} 
+                        className="w-14 h-14 rounded-full border-2 border-[#008d96]/20 p-0.5" 
+                        alt={testimonials[index].name} 
                       />
-                    </div>
-                    <div className="min-w-0">
-                      <h4 className="text-slate-900 font-bold font-display text-sm md:text-base truncate">{item.name}</h4>
-                      <p className="text-indigo-600 text-xs md:text-sm font-medium truncate">{item.role}</p>
-                    </div>
-                    <div className="ml-auto flex gap-0.5">
-                      {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 text-amber-400 fill-amber-400" />
-                      ))}
+                      <div>
+                        <h4 className="text-slate-900 font-black text-lg">{testimonials[index].name}</h4>
+                        <p className="text-[#008d96] font-bold text-sm">{testimonials[index].role}</p>
+                      </div>
+                      <div className="ml-auto hidden sm:flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
+                      </div>
                     </div>
                   </div>
-
                 </div>
-              </div>
-            ))}
+              </motion.div>
+
+              {/* Decorative Background Card (Static Visual) */}
+              <div className="absolute w-[95%] -z-10 bg-white/50 border border-slate-100 h-full rounded-[2.5rem] rotate-3 translate-x-4 blur-[1px] hidden md:block" />
+            </AnimatePresence>
+          </div>
+
+          <button 
+            onClick={nextStep}
+            className="absolute right-0 md:right-4 z-30 p-3 bg-white rounded-full shadow-lg border border-slate-100 text-slate-400 hover:text-[#008d96] transition-all"
+          >
+            <ArrowRight size={24} />
+          </button>
+        </div>
+
+
+        {/* --- View All Button --- */}
+        <div className="flex justify-center mt-8">
+            <Link 
+              href="/reviews"
+              className="flex items-center gap-2 text-slate-900 font-black text-sm uppercase tracking-widest hover:text-[#008d96] transition-colors group"
+            >
+                View More Wall of Love
+                <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
         </div>
 
       </div>

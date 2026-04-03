@@ -6,6 +6,8 @@ import  FaqSection  from "@/components/stats-section"
 import  FeaturesSection  from "@/components/features-section"
 import AchievementsSection from "@/components/ui/AchievementsSection"
 import WhyChooseUsSection from "@/components/why-choose"
+import PhilosophySection from "@/components/phil"
+import AcademyStats from "@/components/stat"
 
 
 export default function HomePage() {
@@ -13,11 +15,14 @@ export default function HomePage() {
     <div className="min-h-screen">
       <main>
         <HeroSection />
+        <AcademyStats/>
+        <PhilosophySection/>
         <WhyChooseUsSection/>
         <AchievementsSection/>
         <CoursesSection />
         <TestimonialsSection />
         <FaqSection />
+        
         <DemoBookingCTA />
       </main>
     </div>

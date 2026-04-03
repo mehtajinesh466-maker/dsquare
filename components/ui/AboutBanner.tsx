@@ -1,99 +1,84 @@
+"use client";
+
 import React from 'react';
-import { PlanetIcon, PaperPlaneIcon, StarIcon, NotebookIcon, RocketIcon } from './BannerIcon';
+import { ChevronRight, Home, MousePointer2 } from 'lucide-react';
 
-const AboutBanner: React.FC = () => {
+const AboutHero: React.FC = () => {
+  const brandTeal = "#008d96";
+
   return (
-    <div className="relative w-full bg-[#F3F0FF] overflow-hidden pt-20 pb-0">
+    <section className="relative w-full min-h-screen bg-white overflow-hidden flex flex-col md:flex-row items-center">
       
-      {/* --- Background Decorative Elements --- */}
-      
-      {/* Small blue dot on the far left */}
-      <div className="absolute top-20 left-4 w-3 h-3 bg-blue-600 rounded-full opacity-80"></div>
-
-      {/* Planet Icon (Top Left) */}
-      <div className="absolute top-12 left-10 md:left-24 opacity-40 transform -rotate-12 pointer-events-none">
-        <PlanetIcon className="w-16 h-16 md:w-24 md:h-24 text-purple-400" />
-      </div>
-
-      {/* Paper Plane (Top Middle/Right) */}
-      <div className="absolute top-16 right-1/3 opacity-40 pointer-events-none hidden md:block">
-        <PaperPlaneIcon className="w-16 h-16 md:w-20 md:h-20 text-purple-400" />
-      </div>
-
-      {/* Star (Top Right) */}
-      <div className="absolute top-10 right-10 md:right-32 opacity-50 transform rotate-12 pointer-events-none">
-        <StarIcon className="w-12 h-12 md:w-16 md:h-16 text-purple-400" />
-      </div>
-
-      {/* Notebook (Bottom Right - floating above wave) */}
-      <div className="absolute bottom-16 right-20 md:right-48 opacity-40 transform -rotate-12 pointer-events-none hidden sm:block">
-        <NotebookIcon className="w-14 h-14 md:w-16 md:h-16 text-purple-400" />
-      </div>
-
-      {/* --- Main Content --- */}
-      <div className="container mx-auto px-6 md:px-12 relative z-10 pb-32 pt-8">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-[#1a1a4b] mb-4">
-          About Us
-        </h1>
+      {/* --- LEFT SIDE: IMAGE WITH BLOB & WAVE --- */}
+      <div className="relative w-full md:w-1/2 h-[50vh] md:h-screen flex items-center justify-center order-2 md:order-1 bg-white">
         
-        <nav className="flex items-center text-base md:text-lg font-medium">
-          <a href="#" className="text-gray-600 hover:text-gray-800 transition-colors">
-            Home
-          </a>
-          <span className="mx-3 text-gray-400 text-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </span>
-          <span className="text-blue-600">
-            About Us
-          </span>
-        </nav>
+       
+
+       
+        {/* The Main Image */}
+        <div className="relative z-10 w-full h-full flex items-end justify-center px-4 md:-translate-y-12 transition-transform duration-700">
+          <img 
+            src="/abh.png" 
+            alt="Chess Journey" 
+            className="w-auto h-[85%] md:h-[90%] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
+          />
+        </div>
+
+        
       </div>
 
-      {/* --- Wave Separator --- */}
-      <div className="absolute bottom-0 left-0 w-full leading-none">
-        <svg
-          className="relative block w-full h-[60px] md:h-[80px]"
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            className="fill-[#F3F0FF] hidden" 
-          ></path>
-           {/* 
-             The image shows a specific repeating sine wave pattern. 
-             Let's use a path that closely mimics the "scalloped" look.
-           */}
-           <path 
-             d="M0,60 C150,120 300,0 450,60 C600,120 750,0 900,60 C1050,120 1200,0 1350,60 V120 H0 V60Z" 
-             fill="#ffffff"
-             transform="scale(1, 0.8) translate(0, 30)"
-           ></path>
-           {/* Let's try a cleaner more symmetrical wave path */}
-           <path 
-             d="M0,120 C200,100 300,40 400,60 C550,90 650,110 800,80 C950,50 1050,20 1200,60 V120 H0 Z" 
-             fill="#ffffff"
-             className="hidden"
-           ></path>
-             <path 
-             d="M0,40 Q100,90 200,40 T400,40 T600,40 T800,40 T1000,40 T1200,40 V120 H0 Z" 
-             fill="#ffffff"
-             transform="scale(1.5, 1)"
-           ></path>
-        </svg>
+      {/* --- RIGHT SIDE: YOUR ORIGINAL CONTENT --- */}
+      <div className="relative w-full md:w-1/2 flex items-center bg-white order-1 md:order-2 px-6 md:px-12 lg:px-20 py-12 md:py-0">
+        
+        {/* Subtle Grid Background (kept from your original) */}
+        <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
+             style={{ backgroundImage: `radial-gradient(${brandTeal} 1.2px, transparent 1.2px)`, backgroundSize: '35px 35px' }}>
+        </div>
+
+        <div className="relative z-30 w-full max-w-xl">
+          {/* Breadcrumbs */}
+          <nav className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.25em] text-slate-400 mb-6 md:mb-10">
+            <a href="/" className="hover:text-[#008d96] flex items-center gap-1.5 transition-colors group">
+              <Home size={12} className="group-hover:-translate-y-0.5 transition-transform" /> HOME
+            </a>
+            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: brandTeal }}></span>
+            <span style={{ color: brandTeal }}>OUR STORY</span>
+          </nav>
+
+          {/* Heading */}
+          <h1 className="text-3xl md:text-5xl font-black text-slate-900 leading-[1.05] tracking-tighter uppercase italic mb-6 md:mb-8">
+            THE <span style={{ color: brandTeal }} className="not-italic">CHESS</span> <br />
+            JOURNEY
+          </h1>
+
+          {/* Description */}
+          <div className="relative mb-10 md:mb-14">
+            <p className="text-slate-500 text-base md:text-xl font-medium leading-relaxed max-w-md">
+              Founded by engineers in 2015, we deconstructed the game of kings into logic-driven coaching to shape the next generation of global thinkers.
+            </p>
+            <div className="absolute top-0 -left-6 bottom-0 w-1 bg-gradient-to-b from-[#008d96] to-transparent rounded-full opacity-30"></div>
+          </div>
+
+          {/* CTA Group */}
+          <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-10">
+            <button 
+              style={{ backgroundColor: brandTeal }}
+              className="w-full sm:w-auto px-10 py-4 md:py-5 text-white rounded-2xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 shadow-lg hover:brightness-110 hover:-translate-y-1 active:scale-95 transition-all shadow-[#008d96]/30"
+            >
+              JOIN THE SQUAD
+              <ChevronRight size={18} strokeWidth={3} />
+            </button>
+
+            <a href="/courses" className="flex items-center gap-2 text-slate-900 font-black text-[11px] uppercase tracking-widest hover:text-[#008d96] transition-colors group">
+              Explore Courses
+              <MousePointer2 size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </a>
+          </div>
+        </div>
       </div>
 
-       {/* --- Rocket (Bottom Left - Overlapping the wave/white area) --- */}
-       <div className="absolute bottom-4 left-10 md:left-24 z-20">
-          <RocketIcon className="w-8 h-8 md:w-10 md:h-10 text-green-500 transform -rotate-45" />
-      </div>
-
-    </div>
+    </section>
   );
 };
 
-export default AboutBanner;
+export default AboutHero;
