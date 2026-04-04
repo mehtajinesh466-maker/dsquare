@@ -4,14 +4,22 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const galleryImages = [
-  { id: 1, src: "/12.jpeg", alt: "Tournament Prize Ceremony" },
-  { id: 2, src: "/16.jpeg", alt: "Intense Training Session" },
-  { id: 3, src: "/17.jpeg", alt: "FIDE rated event" },
-  { id: 4, src: "/18.jpeg", alt: "Strategy Workshop" },
-  { id: 5, src: "/19.jpeg", alt: "Victory Celebration" },
-  { id: 6, src: "/20.jpeg", alt: "Classroom Focus" },
-  { id: 7, src: "/21.jpeg", alt: "Award Ceremony" },
-  { id: 8, src: "/22.jpeg", alt: "Champion Moment" },
+  { id: 1, src: "/cora1.jpeg", alt: "Tournament Prize Ceremony" },
+  { id: 2, src: "/cora2.jpeg", alt: "Intense Training Session" },
+  { id: 3, src: "/cora3.jpeg", alt: "FIDE rated event" },
+  { id: 4, src: "/cora4.jpeg", alt: "Strategy Workshop" },
+  { id: 5, src: "/cora5.jpeg", alt: "Victory Celebration" },
+  { id: 6, src: "/cora6.jpeg", alt: "Classroom Focus" },
+  { id: 7, src: "/cora7.jpeg", alt: "Award Ceremony" },
+  { id: 8, src: "/cora8.jpeg", alt: "Champion Moment" },
+  { id: 9, src: "/cora9.jpeg", alt: "Tournament Prize Ceremony" },
+  { id: 10, src: "/cora10.jpeg", alt: "Intense Training Session" },
+  { id: 11, src: "/cora11.jpeg", alt: "FIDE rated event" },
+  { id: 12, src: "/cora12.jpeg", alt: "Strategy Workshop" },
+  { id: 13, src: "/cora13.jpeg", alt: "Victory Celebration" },
+  { id: 14, src: "/cora14.jpeg", alt: "Classroom Focus" },
+  { id: 15, src: "/cora15.jpeg", alt: "Award Ceremony" },
+  { id: 16, src: "/cora16.jpeg", alt: "Champion Moment" },
 ];
 
 // Duplicate images for a seamless infinite loop

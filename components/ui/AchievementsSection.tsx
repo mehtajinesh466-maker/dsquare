@@ -12,11 +12,62 @@ interface Achiever {
 }
 
 const achievers: Achiever[] = [
+  // --- New Achievements (Added to the top) ---
+  { 
+    id: 12, 
+    name: "Harsh Sonawane", 
+    rating: "Rated", 
+    image: "/harsh.jpeg", 
+    achievement: "Prize Winner: 2nd Sandip Rapid Tournament & Nashik Open Event" 
+  },
+  { 
+    id: 13, 
+    name: "Harshit Lade", 
+    rating: "Rated", 
+    image: "/harshit.jpeg", 
+    achievement: "Prize Winner: Under 16 Category & Nashik Open Event" 
+  },
+  { 
+    id: 14, 
+    name: "Avadhoot Deshpande", 
+    rating: "Active", 
+    image: "/avadhoot.jpeg", 
+    achievement: "Under 16 Prize Winner - Recent Tournament Success" 
+  },
+  { 
+    id: 15, 
+    name: "Om Maheshwari", 
+    rating: "US Chess", 
+    image: "/om.jpeg", 
+    achievement: "Selected for US States Selection" 
+  },
+  { 
+    id: 16, 
+    name: "Rajveer Sagar", 
+    rating: "US Chess", 
+    image: "/rajveer.jpeg", 
+    achievement: "Elite Member - Selected for US Squads" 
+  },
+  { 
+    id: 17, 
+    name: "Kartiki Gosavi", 
+    rating: "Active", 
+    image: "/team.jpeg", 
+    achievement: "Prize Winner in Nashik Open Event" 
+  },
+  { 
+    id: 18, 
+    name: "Parth Palekar", 
+    rating: "Active", 
+    image: "/parth.jpeg", 
+    achievement: "Emerging Talent & Competitive Tournament Performer" 
+  },
+  // --- Existing Achievers ---
   { id: 1, name: "Abhishek Kapse", rating: "1540", image: "/demo1.jpg", achievement: "Under 17 District Champion & District Junior Champion" },
   { id: 2, name: "Piyush Atre", rating: "1580", image: "/demo2.jpg", achievement: "Consistently Ranked Competitive Tournament Player" },
   { id: 3, name: "Areen Kulkarni", rating: "1600", image: "/demo3.jpg", achievement: "Winner of multiple local and International Rated Events" },
   { id: 4, name: "Daksh Patel", rating: "1664", image: "/demo4.jpg", achievement: "Top Tier International Rated Performer - UAE" },
-  { id: 5, name: "Chaitanya Dahanke", rating: "1516", image: "/demo5.jpg", achievement: "Strategic Performance in National Level Open Events" },
+  { id: 5, name: "Chaitanya Dahanke", rating: "1516", image: "/demo5.jpg", achievement: "Nashik Open Event Prize Winner & National Level Performer" },
   { id: 6, name: "Samarth Patil", rating: "1517", image: "/demo6.jpg", achievement: "Ranked Professional with Consistent Tournament Growth" },
   { id: 7, name: "Priyanka Gavli", rating: "1500", image: "/demo7.jpg", achievement: "Distinguished Rated Player in Women's Competitive Chess" },
   { id: 8, name: "Alfred Philips", rating: "1490", image: "/demo8.jpg", achievement: "Prominent International Rated Talent - UAE" },
@@ -30,7 +81,6 @@ const AchievementsSection: React.FC = () => {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      // Logic to scroll by the width of one card + gap
       const cardWidth = 320; 
       const gap = 24;
       const scrollAmount = direction === 'left' ? -(cardWidth + gap) : (cardWidth + gap);
@@ -45,14 +95,12 @@ const AchievementsSection: React.FC = () => {
   return (
     <section className="relative py-12 md:py-20 lg:py-28 bg-white overflow-hidden font-sans">
       
-      {/* Background Decoration */}
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(#008d96 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
         
-        {/* --- Header --- */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 gap-6">
           <div className="max-w-2xl text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-3 md:mb-4">
@@ -67,7 +115,6 @@ const AchievementsSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Navigation Controls - Hidden on small mobile to favor natural swipe */}
           <div className="flex justify-center md:justify-end gap-3">
             <button 
               onClick={() => scroll('left')}
@@ -86,7 +133,6 @@ const AchievementsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* --- Card Carousel --- */}
         <div 
           ref={scrollContainerRef}
           className="flex gap-4 md:gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 pt-2 scroll-smooth no-scrollbar"
@@ -99,7 +145,6 @@ const AchievementsSection: React.FC = () => {
             >
               <div className="bg-white rounded-[2rem] md:rounded-[2.5rem] p-3 md:p-4 border border-slate-100 shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_70px_rgba(0,141,150,0.12)] transition-all duration-500 group flex flex-col h-full">
                 
-                {/* Image Container */}
                 <div className="relative h-[220px] sm:h-[250px] md:h-[280px] w-full rounded-[1.5rem] md:rounded-[2rem] overflow-hidden mb-4 md:mb-6 bg-slate-50">
                   <img 
                     src={person.image} 
@@ -107,14 +152,14 @@ const AchievementsSection: React.FC = () => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
                   />
-                  {/* Rating Badge Overlay */}
                   <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-white/95 backdrop-blur shadow-lg px-3 py-1.5 md:px-4 md:py-2 rounded-xl md:rounded-2xl flex items-center gap-1.5 md:gap-2 border border-[#008d96]/10">
                     <Target size={12} className="text-[#008d96] md:w-3.5 md:h-3.5" />
-                    <span className="text-[10px] md:text-sm font-black text-slate-900">FIDE {person.rating}</span>
+                    <span className="text-[10px] md:text-sm font-black text-slate-900">
+                      {isNaN(Number(person.rating)) ? person.rating : `FIDE ${person.rating}`}
+                    </span>
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="px-2 pb-3 md:pb-4 text-center flex-grow flex flex-col">
                   <div className="flex justify-center mb-2 md:mb-3">
                      <div className="flex text-orange-400">
@@ -141,7 +186,6 @@ const AchievementsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Bottom Support Text */}
         <div className="mt-8 md:mt-12 text-center px-4">
            <p className="text-slate-400 font-bold text-[10px] md:text-sm uppercase tracking-widest leading-relaxed">
              + Our global academy community includes 100+ students from India, UAE & beyond
