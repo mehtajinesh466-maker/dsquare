@@ -306,7 +306,7 @@ export default function FAQPage() {
               </div>
               <h3 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter uppercase italic leading-[0.9]">Serving a <br /> Global Arena.</h3>
               <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed">
-                Our deconstructed curriculum is currently powering the strategic growth of <span className="text-white font-bold underline decoration-[#008d96] underline-offset-8">1500+ students</span> across 50+ nations.
+                Our deconstructed curriculum is currently powering the strategic growth of <span className="text-white font-bold underline decoration-[#008d96] underline-offset-8">3000+ students</span> across 50+ nations.
               </p>
             </div>
             

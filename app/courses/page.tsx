@@ -205,7 +205,7 @@ export default function CoursesPage() {
       level: "advanced",
       duration: "6 Months",
       price: "₹30,000",
-      students: "25+",
+      students: "50+",
       rating: "4.9",
       icon: Trophy,
       color: "from-purple-400 to-pink-400",

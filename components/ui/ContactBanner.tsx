@@ -84,15 +84,7 @@ const ContactHero: React.FC = () => {
              </div>
           </div>
 
-          {/* CTA Button */}
-          <div className="flex flex-col sm:flex-row items-center gap-5">
-            <button 
-              className="w-full sm:w-auto px-10 py-4 md:py-5 bg-[#008d96] text-white rounded-2xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 shadow-lg shadow-[#008d96]/30 hover:shadow-[#008d96]/50 hover:-translate-y-1 active:scale-95 transition-all"
-            >
-              SEND A MESSAGE
-              <ChevronRight size={18} strokeWidth={3} />
-            </button>
-          </div>
+      
         </div>
 
         {/* Decorative Side Progress Bar - Hidden on mobile */}

@@ -57,8 +57,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-b from-[#0a191a] to-[#040d0d] text-white overflow-hidden font-sans border-t border-[#008d96]/30">
-      
+    <footer className="relative bg-gradient-to-b from-[#0f172a] to-[#020617] text-white overflow-hidden font-sans border-t border-[#008d96]/30">
       {/* =======================
           VISUAL DECORATION (Replaced Owl)
          ======================= */}

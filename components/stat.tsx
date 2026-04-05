@@ -12,12 +12,12 @@ const stats = [
     icon: <Globe size={32} />,
   },
   {
-    number: "1500+",
+    number: "3000+",
     label: "Students Trained",
     icon: <Users size={32} />,
   },
   {
-    number: "25+",
+    number: "50+",
     label: "FIDE Rated Students",
     icon: <GraduationCap size={32} />,
   },

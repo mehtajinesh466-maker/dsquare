@@ -93,9 +93,7 @@ export default function HangingHero() {
             Building The Next Generation Of <br className="hidden md:block" />
             <span style={{ color: BRAND_TEAL }} className="relative inline-block">
               Global Thinkers
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <path d="M0 5 Q 50 10 100 5" stroke={BRAND_TEAL} strokeWidth="4" fill="none" opacity="0.3" />
-              </svg>
+              
             </span>
           </h1>
 

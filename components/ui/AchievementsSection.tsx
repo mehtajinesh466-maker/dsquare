@@ -115,10 +115,21 @@ const AchievementsSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex justify-center md:justify-end gap-3">
-            <button onClick={() => scroll('left')} className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-[#008d96] hover:text-white transition-all"><ChevronLeft /></button>
-            <button onClick={() => scroll('right')} className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-[#008d96] hover:text-white transition-all"><ChevronRight /></button>
-          </div>
+         <div className="flex justify-center md:justify-end gap-3">
+  <button 
+    onClick={() => scroll('left')} 
+    className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white bg-[#008d96] hover:bg-[#00767d] transition-all shadow-md"
+  >
+    <ChevronLeft />
+  </button>
+
+  <button 
+    onClick={() => scroll('right')} 
+    className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white bg-[#008d96] hover:bg-[#00767d] transition-all shadow-md"
+  >
+    <ChevronRight />
+  </button>
+</div>
         </div>
 
         {/* --- Featured Carousel (With Images) --- */}

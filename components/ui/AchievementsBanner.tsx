@@ -66,7 +66,7 @@ const AchievementsHero: React.FC = () => {
                 <div className="p-2 rounded-lg bg-slate-50 group-hover:bg-[#008d96]/10 transition-colors shrink-0">
                   <Target size={20} className="text-[#008d96]" />
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-slate-700">25+ Rated Players</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-700">100+ Rated Players</span>
              </div>
              <div className="flex items-center gap-3 group">
                 <div className="p-2 rounded-lg bg-slate-50 group-hover:bg-orange-50 transition-colors shrink-0">
@@ -76,16 +76,7 @@ const AchievementsHero: React.FC = () => {
              </div>
           </div>
 
-          {/* CTA Button */}
-          <div className="flex flex-col sm:flex-row items-center gap-5">
-            <button 
-              style={{ backgroundColor: brandTeal }}
-              className="w-full sm:w-auto px-10 py-4 md:py-5 text-white rounded-2xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 shadow-lg hover:brightness-110 hover:-translate-y-1 active:scale-95 transition-all shadow-[#008d96]/30"
-            >
-              EXPLORE SUCCESS STORIES
-              <ChevronRight size={18} strokeWidth={3} />
-            </button>
-          </div>
+         
         </div>
       </div>
 

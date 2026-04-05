@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { ChevronRight, Home, MousePointer2 } from 'lucide-react';
+import Link from 'next/link';
 
 const AboutHero: React.FC = () => {
   const brandTeal = "#008d96";
@@ -57,19 +58,28 @@ const AboutHero: React.FC = () => {
 
           {/* CTA Group */}
           <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-10">
-            <button 
-              style={{ backgroundColor: brandTeal }}
-              className="w-full sm:w-auto px-10 py-4 md:py-5 text-white rounded-2xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 shadow-lg hover:brightness-110 hover:-translate-y-1 active:scale-95 transition-all shadow-[#008d96]/30"
-            >
-              JOIN THE SQUAD
-              <ChevronRight size={18} strokeWidth={3} />
-            </button>
+  
+  {/* Contact Page */}
+  <Link 
+    href="/contact"
+    style={{ backgroundColor: brandTeal }}
+    className="w-full sm:w-auto px-10 py-4 md:py-5 text-white rounded-2xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 shadow-lg hover:brightness-110 hover:-translate-y-1 active:scale-95 transition-all shadow-[#008d96]/30"
+  >
+    JOIN THE SQUAD
+    <ChevronRight size={18} strokeWidth={3} />
+  </Link>
 
-            <a href="/courses" className="flex items-center gap-2 text-slate-900 font-black text-[11px] uppercase tracking-widest hover:text-[#008d96] transition-colors group">
-              Explore Courses
-              <MousePointer2 size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </a>
-          </div>
+  {/* Curriculum Page */}
+  <Link 
+    href="/curriculum"
+    className="flex items-center gap-2 text-slate-900 font-black text-[11px] uppercase tracking-widest hover:text-[#008d96] transition-colors group"
+  >
+    Explore Courses
+    <MousePointer2 size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+  </Link>
+
+</div>
+
         </div>
       </div>
 

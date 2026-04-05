@@ -21,8 +21,8 @@ export default function TeamSection() {
   const BRAND_TEAL = "#008d96";
 
   const mainCoachStats = [
-    { label: "Global Students", value: "250+", icon: Users },
-    { label: "Rated Students", value: "25+", icon: Medal },
+    { label: "Global Students", value: "3000+", icon: Users },
+    { label: "Rated Students", value: "50+", icon: Medal },
     { label: "Social Impact", value: "350+", icon: Heart },
     { label: "Years Coaching", value: "9+", icon: Trophy },
   ];

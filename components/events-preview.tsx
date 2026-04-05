@@ -2,6 +2,7 @@
 
 import React from "react";
 import { CheckCircle2, ArrowRight, Clock, Target, Trophy, Star, Crown, Flame, Sparkles, BookOpen } from "lucide-react";
+import Link from "next/link";
 
 const courseData = [
   {
@@ -211,15 +212,16 @@ export default function CoursesSection() {
                       </p>
                    </div>
                    
-                   <button 
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center text-white transition-all hover:scale-105 active:scale-90 shadow-lg"
-                    style={{ 
-                      backgroundColor: course.theme,
-                      boxShadow: `0 10px 25px -5px ${course.theme}50`
-                    }}
-                   >
-                     <ArrowRight size={20} strokeWidth={3} />
-                   </button>
+                   <Link
+  href="/contact"
+  className="w-12 h-12 rounded-2xl flex items-center justify-center text-white transition-all hover:scale-105 active:scale-90 shadow-lg"
+  style={{ 
+    backgroundColor: course.theme,
+    boxShadow: `0 10px 25px -5px ${course.theme}50`
+  }}
+>
+  <ArrowRight size={20} strokeWidth={3} />
+</Link>
                 </div>
               </div>
             </div>
