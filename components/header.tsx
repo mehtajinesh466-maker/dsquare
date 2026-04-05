@@ -5,6 +5,7 @@ import { MenuIcon, XIcon, ArrowRightIcon } from "./ui/BannerIcon";
 import { ChevronDown, Globe, MapPin } from "lucide-react"; // Icons for dropdown
 import { useDemoModal } from "@/context/DemoContext";
 
+
 // --- Configuration & Constants ---
 const BRAND_COLORS = {
   primary: "#008d96",

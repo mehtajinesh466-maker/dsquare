@@ -8,6 +8,7 @@ import TeamSection from "@/components/ui/team-section";
 import FinalCTASection from "@/components/ui/final-cta-section";
 import DemoBookingCTA from "@/components/demo-booking-cta";
 import PhilosophySection from "@/components/philoshophy";
+import CoachProfile from "@/components/ui/coach";
 
 export default function AboutPage() {
   return (
@@ -17,6 +18,7 @@ export default function AboutPage() {
       <PhilosophySection/>
       {/* <AchievementsSection /> */}
       <TeamSection />
+      <CoachProfile/>
       {/* <CoachCtaSection /> */}
       
       <TestimonialsSection />

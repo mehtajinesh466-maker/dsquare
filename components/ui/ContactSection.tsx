@@ -68,8 +68,8 @@ const ContactSection: React.FC = () => {
             <span className="w-8 md:w-12 h-[2px] bg-[#008d96]"></span>
             <span className="text-[#008d96] font-black uppercase tracking-[0.3em] text-[10px] md:text-xs">Let's Connect</span>
           </motion.div>
-          <h2 className="text-3xl md:text-6xl font-black text-slate-900 leading-tight tracking-tight">
-            Contact <span style={{ color: BRAND_TEAL }} className="italic">D’Square</span> <br />
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight tracking-tight">
+            Contact <span style={{ color: BRAND_TEAL }} className="italic">D’Square</span> {" "}
             Academy
           </h2>
           <p className="mt-4 md:mt-6 text-slate-500 font-medium max-w-xl text-base md:text-lg">
