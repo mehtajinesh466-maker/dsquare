@@ -53,7 +53,7 @@ const CoachProfile = () => {
                   <span style={{ color: BRAND_TEAL }}>Jadhav.</span>
                 </h2>
                 <p className="text-xl font-bold text-slate-400 uppercase tracking-widest">
-                  Founder & Head Coach | National Arbiter
+                  Head Coach | National Arbiter
                 </p>
               </div>
 
