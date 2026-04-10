@@ -69,7 +69,7 @@ const HowOnlineClassesWork = () => {
                 The Roadmap
              </span>
           </div>
-          <h2 className="text-3xl md:text-6xl font-[1000] text-slate-900 tracking-tighter uppercase leading-none">
+          <h2 className="text-3xl md:text-5xl font-[1000] text-slate-900 tracking-tighter uppercase leading-none">
             How Online <br />
             <span style={{ color: BRAND_TEAL }}>Classes Work.</span>
           </h2>

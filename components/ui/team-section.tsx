@@ -41,7 +41,7 @@ export default function TeamSection() {
   ];
 
   return (
-    <section className="py-12 md:py-24 bg-white relative overflow-hidden font-sans">
+    <section className="bg-white relative overflow-hidden font-sans">
       
       {/* Background Decoration */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.02]" 
@@ -90,8 +90,6 @@ export default function TeamSection() {
                     </p>
                 </div>
               </div>
-
-             
             </motion.div>
           </div>
 
@@ -181,7 +179,7 @@ export default function TeamSection() {
         </div>
 
         {/* --- STUDENT WALL OF PRIDE --- */}
-        <div className="pt-12 md:pt-20 border-t border-slate-100">
+        {/* <div className="pt-12 md:pt-20 border-t border-slate-100">
            <div className="text-center mb-10 md:mb-16">
               <h4 className="text-[8px] md:text-[10px] font-black text-[#008d96] uppercase tracking-[0.4em] mb-4">The Hall of Fame</h4>
               <h3 className="text-2xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase italic">Our Proud Students.</h3>
@@ -195,7 +193,7 @@ export default function TeamSection() {
                 </div>
               ))}
            </div>
-        </div>
+        </div> */}
 
       </div>
     </section>

@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Globe2, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 const BRAND_TEAL = "#008d96";
 // High-quality chess image for the background
@@ -14,11 +15,42 @@ const HeroSection = () => {
       
       {/* --- BACKGROUND IMAGE & OVERLAY --- */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={HERO_IMAGE} 
-          alt="Chess Board Background" 
-          className="w-full h-full object-cover opacity-100"
-        />
+       <div className="absolute inset-0 z-0">
+
+  {/* Desktop Image */}
+  <div className="hidden md:block absolute inset-0">
+    <Image
+      src="/hero-bg.jpg"
+      alt="Chess Background Desktop"
+      fill
+      priority
+      className="object-cover"
+    />
+  </div>
+
+  {/* Mobile Image */}
+  <div className="block md:hidden absolute inset-0">
+    <Image
+      src="/hero2.jpg"
+      alt="Chess Background Mobile"
+      fill
+      priority
+      className="object-cover"
+    />
+  </div>
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/10 to-slate-950"></div>
+
+  {/* Radial Glow */}
+  <div 
+    className="absolute inset-0 opacity-30" 
+    style={{ 
+      backgroundImage: `radial-gradient(circle at 50% 50%, ${BRAND_TEAL}44 0%, transparent 70%)` 
+    }}
+  ></div>
+
+</div>
         {/* Dark Gradient Overlay for Readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/40 to-slate-950"></div>
         

@@ -86,8 +86,8 @@ const ContactSection: React.FC = () => {
               <Phone className="text-[#008d96] mb-4 md:mb-6" size={28} />
               <h4 className="text-base md:text-lg font-black text-slate-900 mb-1">Call / WhatsApp</h4>
               <p className="text-slate-500 text-xs md:text-sm font-medium mb-3 md:mb-4 leading-relaxed">Quick support within 24 hours.</p>
-              <a href="tel:+918130627389" className="inline-flex items-center gap-2 text-[#008d96] font-black text-xs md:text-sm uppercase tracking-wider group-hover:gap-4 transition-all">
-                +91 81306 27389 <ArrowUpRight size={16} />
+              <a href="tel:+919588617808" className="inline-flex items-center gap-2 text-[#008d96] font-black text-xs md:text-sm uppercase tracking-wider group-hover:gap-4 transition-all">
+                +91 95886 17808 <ArrowUpRight size={16} />
               </a>
             </div>
 
@@ -95,8 +95,8 @@ const ContactSection: React.FC = () => {
               <Mail className="text-orange-500 mb-4 md:mb-6" size={28} />
               <h4 className="text-base md:text-lg font-black text-slate-900 mb-1">Email Academy</h4>
               <p className="text-slate-500 text-xs md:text-sm font-medium mb-3 md:mb-4 leading-relaxed">For curriculum & enrollments.</p>
-              <a href="mailto:info@dsquarechess.com" className="inline-flex items-center gap-2 text-orange-600 font-black text-xs md:text-sm uppercase tracking-wider group-hover:gap-4 transition-all">
-                info@dsquarechess.com <ArrowUpRight size={16} />
+              <a href="mailto:info@dsquare.com" className="inline-flex items-center gap-2 text-orange-600 font-black text-xs md:text-sm uppercase tracking-wider group-hover:gap-4 transition-all">
+                info@dsquare.com <ArrowUpRight size={16} />
               </a>
             </div>
 
@@ -105,7 +105,7 @@ const ContactSection: React.FC = () => {
                 <MapPin className="text-[#00b4bf] shrink-0" size={24} />
                 <div>
                   <h4 className="font-black text-xs md:text-sm uppercase tracking-widest mb-1">Our Centers</h4>
-                  <p className="text-slate-300 text-sm leading-relaxed font-bold">Pune & Kharadi</p>
+                  <p className="text-slate-300 text-sm leading-relaxed font-bold">Pune & Nashik</p>
                   <p className="text-slate-500 text-[10px] md:text-xs mt-1 font-medium">Maharashtra, India</p>
                 </div>
               </div>

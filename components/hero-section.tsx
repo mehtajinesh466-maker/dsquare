@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Trophy, Globe, Brain, Star, CheckCircle } from "lucide-react";
 import { useDemoModal } from "@/context/DemoContext";
+import { Crown } from "lucide-react";
 
 const BRAND_TEAL = "#008d96";
 
@@ -72,8 +73,8 @@ export default function HangingHero() {
         
         {/* Floating Icons (Hidden on Mobile for cleaner UI) */}
         <div className="absolute -left-20 top-0 opacity-10 animate-pulse hidden lg:block">
-           <Brain size={100} color={BRAND_TEAL} />
-        </div>
+  <Crown size={100} color={BRAND_TEAL} />
+</div>
         <div className="absolute -right-20 bottom-0 opacity-10 animate-bounce hidden lg:block">
            <Trophy size={100} color={BRAND_TEAL} />
         </div>

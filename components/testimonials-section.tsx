@@ -146,11 +146,7 @@ export default function TestimonialsSection() {
 
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 border-t border-slate-50 pt-6">
                       <div className="flex items-center gap-3">
-                        <img 
-                          src={testimonials[index].avatar} 
-                          className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-[#008d96]/20 p-0.5" 
-                          alt={testimonials[index].name} 
-                        />
+                        
                         <div>
                           <h4 className="text-slate-900 font-black text-sm sm:text-lg leading-tight">{testimonials[index].name}</h4>
                           <p className="text-[#008d96] font-bold text-xs sm:text-sm">{testimonials[index].role}</p>
