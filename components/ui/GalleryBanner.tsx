@@ -12,11 +12,11 @@ const GalleryHero: React.FC = () => {
       {/* --- IMAGE SIDE: order-1 on mobile (Appears first at the TOP) --- */}
       <div className="relative w-full md:w-1/2 flex items-center justify-center p-6 md:p-12 order-1 md:order-1 h-[45vh] md:h-screen pt-10 md:pt-0">
         
-        <div className="relative z-10 w-full h-full flex justify-center items-center transform md:-translate-y-6 transition-transform duration-700">
+        <div className="relative z-10 w-full h-full flex justify-center items-center transform md:-translate-y-2 transition-transform duration-700">
           <img 
-            src="/gal.png" 
+            src="/22.jpeg" 
             alt="D'Square Chess Moments" 
-            className="max-w-full h-auto max-h-full object-contain"
+            className="max-w-full h-auto max-h-full object-contain rounded-2xl"
           />
         </div>
 

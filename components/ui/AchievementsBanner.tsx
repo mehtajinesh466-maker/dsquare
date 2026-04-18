@@ -13,11 +13,11 @@ const AchievementsHero: React.FC = () => {
       <div className="relative w-full md:w-1/2 flex items-center justify-center p-6 md:p-12 order-1 md:order-1 h-[45vh] md:h-screen pt-10 md:pt-0">
         
         {/* "Free" Image */}
-        <div className="relative z-10 w-full h-full flex justify-center items-center transform md:-translate-y-6 transition-transform duration-700">
+        <div className="relative z-10 w-full h-full flex justify-center items-center transform md:-translate-y-10 transition-transform duration-700">
           <img 
-            src="/ach.png" 
+            src="/hero-3.png" 
             alt="D'Square Achievements" 
-            className="max-w-full h-auto max-h-full object-contain"
+            className="max-w-full h-auto max-h-full object-contain rounded-2xl"
           />
         </div>
 

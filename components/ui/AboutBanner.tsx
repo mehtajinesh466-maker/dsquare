@@ -14,11 +14,11 @@ const AboutHero: React.FC = () => {
       <div className="relative w-full md:w-1/2 h-[50vh] md:h-screen flex items-center justify-center order-1 bg-white pt-0 md:pt-0">
         
         {/* The Main Image */}
-        <div className="relative z-10 w-full h-full flex items-end justify-center px-4 md:-translate-y-12 transition-transform duration-700">
+        <div className="relative z-10 w-full h-full flex items-end justify-center px-4 md:-translate-y-42 transition-transform duration-700">
           <img 
-            src="/abh.png" 
+            src="/hero-2.png" 
             alt="Chess Journey" 
-            className="w-auto h-[85%] md:h-[90%] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
+            className="max-w-full h-auto max-h-full object-contain rounded-2xl"
           />
         </div>
         
