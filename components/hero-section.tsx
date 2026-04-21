@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Trophy, Globe, Brain, Star, CheckCircle, Play, Calendar, Crown } from "lucide-react";
+import { ArrowRight, Globe, Star, Play, Crown } from "lucide-react";
 import { useDemoModal } from "@/context/DemoContext";
 
 const BRAND_TEAL = "#008d96";
@@ -18,16 +18,19 @@ export default function SideBySideHero() {
         <Crown size={120} color={BRAND_TEAL} />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 max-w-8xl">
-        {/* Changed from grid to flex-col-reverse for mobile ordering */}
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-8">
+      {/* Reduced max-width from 8xl to 7xl to bring content closer together */}
+      <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+        
+        {/* Changed gap and added justify-between */}
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-4">
           
           {/* --- LEFT SIDE: TEXT CONTENT --- */}
+          {/* Adjusted width to 55% to give text more presence */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="w-full lg:w-1/2 text-center lg:text-left z-20"
+            className="w-full lg:w-[55%] text-center lg:text-left z-20"
           >
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e6f4f5] text-[#008d96] font-extrabold text-[10px] md:text-xs mb-6 tracking-widest uppercase">
@@ -74,15 +77,16 @@ export default function SideBySideHero() {
             </div>
           </motion.div>
 
-          {/* --- RIGHT SIDE: VISUALS (Will be Top on Mobile) --- */}
-          <div className="w-full lg:w-1/2 relative flex justify-center items-center lg:justify-end">
+          {/* --- RIGHT SIDE: VISUALS --- */}
+          {/* Changed width to 45% and lg:justify-start to pull it toward the text */}
+          <div className="w-full lg:w-[45%] relative flex justify-center items-center lg:justify-start">
             
-            {/* Floating Card (Hidden on mobile to avoid clutter) */}
+            {/* Floating Card */}
             <motion.div 
               initial={{ x: 20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="absolute -left-4 top-10 z-30 hidden xl:flex items-center gap-3 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white"
+              className="absolute -left-8 top-10 z-30 hidden xl:flex items-center gap-3 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white"
             >
               <div className="w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0" style={{ backgroundColor: BRAND_TEAL }}>
                 <Play fill="currentColor" size={16} />
@@ -93,7 +97,8 @@ export default function SideBySideHero() {
             </motion.div>
 
             {/* Central Visual Stack */}
-            <div className="relative w-full max-w-[450px] lg:max-w-none">
+            {/* Added a max-width on the image itself to ensure it doesn't drift too far */}
+            <div className="relative w-full max-w-[580px]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -101,9 +106,9 @@ export default function SideBySideHero() {
                 className="relative z-10"
               >
                 <img 
-                  src="/hero.png" 
+                  src="/sq-hero.png" 
                   alt="Online Chess Class" 
-                  className="w-full h-auto drop-shadow-2xl"
+                  className="w-full h-auto drop-shadow-2xl translate-x-4 lg:translate-x-0"
                 />
               </motion.div>
 
