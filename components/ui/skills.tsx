@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 
 const BRAND_TEAL = "#008d96";
+import Link from 'next/link';
 
 const outcomes = [
   {
@@ -139,9 +140,12 @@ export default function SkillOutcomesSection() {
              ))}
            </div>
 
-           <button className="relative z-10 w-full lg:w-auto px-8 py-4 bg-[#008d96] text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-[#00b4bf] transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95">
-              Join the Mission <ChevronRight size={16} strokeWidth={3} />
-           </button>
+          <Link
+  href="/contact"
+  className="relative z-10 w-full lg:w-auto px-8 py-4 bg-[#008d96] text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-[#00b4bf] transition-all flex items-center justify-center gap-3 shadow-xl active:scale-95"
+>
+  Join the Mission <ChevronRight size={16} strokeWidth={3} />
+</Link>
         </motion.div>
 
       </div>

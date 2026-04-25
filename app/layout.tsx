@@ -56,7 +56,7 @@ export default function RootLayout({
           },
           "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+91-8130627389",
+            "telephone": "+91-9588617808",
             "contactType": "customer service",
             "email": "dsquarechessacademy@gmail.com"
           },

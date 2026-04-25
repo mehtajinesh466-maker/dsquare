@@ -218,7 +218,7 @@ export default function TermsPage() {
                   Email: dsquarechessacademy@gmail.com
                 </Badge>
                 <Badge className="bg-green-500/10 text-green-700 border border-green-500/20 px-4 py-2">
-                  Phone: +91 8130627389
+                  Phone: +91 9588617808
                 </Badge>
               </div>
             </div>

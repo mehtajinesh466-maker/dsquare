@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Trophy, Target, ChevronRight, Zap } from 'lucide-react';
-
+import Link from "next/link";
 const AcademyPhilosophy: React.FC = () => {
   const BRAND_TEAL = "#008d96";
 
@@ -122,9 +122,12 @@ const AcademyPhilosophy: React.FC = () => {
                      </div>
                   </div>
 
-                  <button className="w-full py-4 bg-white text-slate-950 rounded-xl md:rounded-2xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-[#008d96] hover:text-white transition-all active:scale-95">
-                    Explore Programs <ChevronRight size={16} />
-                  </button>
+<Link
+  href="/curriculum"
+  className="w-full py-4 bg-white text-slate-950 rounded-xl md:rounded-2xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-[#008d96] hover:text-white transition-all active:scale-95"
+>
+  Explore Programs <ChevronRight size={16} />
+</Link>
                </div>
             </motion.div>
 

@@ -9,6 +9,7 @@ import {
   ChevronRight,
   Target
 } from 'lucide-react';
+import Link from 'next/link';
 
 const AboutSection: React.FC = () => {
   const BRAND_TEAL = "#008d96";
@@ -158,13 +159,15 @@ const AboutSection: React.FC = () => {
 
             {/* Action Area */}
             <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-10">
-               <button 
-                className="w-full sm:w-auto group px-8 py-4 text-white rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-lg shadow-[#008d96]/20 hover:-translate-y-1 flex items-center justify-center gap-2"
-                style={{ backgroundColor: BRAND_TEAL }}
-               >
-                 Discover More
-                 <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-               </button>
+             <Link href="/gallery">
+  <button 
+    className="w-full sm:w-auto group px-8 py-4 text-white rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-lg shadow-[#008d96]/20 hover:-translate-y-1 flex items-center justify-center gap-2"
+    style={{ backgroundColor: BRAND_TEAL }}
+  >
+    Discover More
+    <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+  </button>
+</Link>
 
                <div className="flex items-center gap-3 border-l-0 sm:border-l border-slate-100 sm:pl-6">
                   <div className="w-10 h-10 rounded-full border-2 border-[#008d96]/20 p-0.5 shrink-0">

@@ -62,7 +62,6 @@ export default function BookDemoModal() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // 1. Prepare formatted WhatsApp Message
     const whatsappMessage = 
       `*New Enrollment/Demo - D'Square Chess Academy*%0A` +
       `-------------------------------------------%0A` +
@@ -90,7 +89,7 @@ export default function BookDemoModal() {
       `• Expectations: ${formData.expectations || "None"}%0A` +
       `-------------------------------------------`;
 
-    const whatsappUrl = `https://wa.me/918130627389?text=${whatsappMessage}`;
+    const whatsappUrl = `https://wa.me/919588617808?text=${whatsappMessage}`;
 
     try {
       await fetch("https://script.google.com/macros/s/AKfycbwPBxWXpnQ4ywqrdfmKvfFi7g5Uu6hjmaTFVDE5EiMI0YEyqjRNTCxionf65Q5Zqlg/exec", {
@@ -115,11 +114,11 @@ export default function BookDemoModal() {
   };
 
   return (
-    <div className="fixed inset-0 bg-slate-950/50 backdrop-blur-md flex items-center justify-center z-[100] p-4">
+    <div className="fixed inset-0 bg-slate-950/60 backdrop-blur-md flex items-center justify-center z-[100] p-4">
       <div className="bg-white rounded-[2.5rem] w-full max-w-2xl relative animate-in fade-in zoom-in duration-300 shadow-2xl border border-slate-100 flex flex-col max-h-[90vh] overflow-hidden">
         
-        {/* --- Header --- */}
-        <div className="p-6 border-b border-slate-50 flex items-start justify-between shrink-0 bg-slate-50/50">
+        {/* --- Header (Fixed) --- */}
+        <div className="p-6 border-b border-slate-100 flex items-start justify-between shrink-0 bg-white z-10">
           <div className="flex items-center gap-4">
             <div className="w-10 h-10 rounded-xl bg-[#008d96] flex items-center justify-center text-white shadow-lg">
                <Brain size={20} />
@@ -129,14 +128,14 @@ export default function BookDemoModal() {
               <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-1">Start Your Child's Chess Journey</p>
             </div>
           </div>
-          <button onClick={closeDemoModal} className="p-2 hover:bg-white rounded-full text-slate-400 hover:text-red-500 transition-colors">
+          <button onClick={closeDemoModal} className="p-2 hover:bg-slate-100 rounded-full text-slate-400 hover:text-red-500 transition-colors">
             <X className="w-6 h-6" />
           </button>
         </div>
 
-        {/* --- Form Body --- */}
-        <div className="p-8 overflow-y-auto custom-scrollbar">
-          <form onSubmit={handleSubmit} className="space-y-10">
+        {/* --- Scrollable Form Body --- */}
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-8">
+          <form onSubmit={handleSubmit} className="space-y-10 pr-2">
             
             {/* 1. Student Information */}
             <section className="space-y-4">
@@ -180,7 +179,7 @@ export default function BookDemoModal() {
               </div>
             </section>
 
-            {/* 3. Learning Goals (The "Impressive" Section) */}
+            {/* 3. Learning Goals */}
             <section className="space-y-4">
               <div className="flex items-center gap-2 text-orange-500 mb-2">
                 <Star size={18} fill="currentColor" />
@@ -278,12 +277,22 @@ export default function BookDemoModal() {
           box-shadow: 0 0 0 4px rgba(0, 141, 150, 0.1);
           background-color: #ffffff;
         }
+        
+        /* Visible Scrollbar Styles */
         .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
+          width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: #f1f5f9;
+          border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #e2e8f0;
+          background: #94a3b8; /* Darker gray for visibility */
           border-radius: 10px;
+          border: 2px solid #f1f5f9; /* Creates a padding effect */
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #94a3b8; /* Even darker on hover */
         }
       `}</style>
     </div>

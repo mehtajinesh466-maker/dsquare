@@ -3,12 +3,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MessageSquare, ShieldCheck, Zap, Sparkles } from 'lucide-react';
+import { useDemoModal } from '@/context/DemoContext';
+import Link from 'next/link';
 
 const FinalCTA: React.FC = () => {
+    const { openDemoModal } = useDemoModal();
   const BRAND_TEAL = "#008d96";
 
   return (
+    
     <section className="py-10 md:py-20 bg-white font-sans overflow-hidden">
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-20 max-w-6xl">
         
         {/* --- COMPACT COMMAND CARD --- */}
@@ -58,6 +63,7 @@ const FinalCTA: React.FC = () => {
             {/* Right Side: Conversion Buttons */}
             <div className="w-full lg:col-span-5 flex flex-col gap-4">
               <motion.button 
+              onClick={openDemoModal}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 style={{ backgroundColor: BRAND_TEAL }}
@@ -77,12 +83,15 @@ const FinalCTA: React.FC = () => {
                   <span className="text-[9px] font-black text-white uppercase tracking-widest">WhatsApp</span>
                 </a>
                 
-                <button 
-                  className="py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-all group"
-                >
-                  <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-                  <span className="text-[9px] font-black text-white uppercase tracking-widest">Pricing info</span>
-                </button>
+               <Link
+  href="/contact"
+  className="py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-all group"
+>
+  <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+  <span className="text-[9px] font-black text-white uppercase tracking-widest">
+    Pricing info
+  </span>
+</Link>
               </div>
 
               <p className="text-[9px] text-slate-600 font-bold uppercase tracking-tighter text-center mt-2">

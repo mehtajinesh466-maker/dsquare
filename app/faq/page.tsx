@@ -223,7 +223,7 @@ export default function FAQPage() {
                    Connect with our technical planning department for a free 1:1 strategy audit.
                  </p>
                  <a 
-                   href="https://wa.me/918130627389" 
+                   href="https://wa.me/919588617808" 
                    target="_blank"
                    rel="noopener noreferrer"
                    className="inline-flex items-center gap-3 px-8 py-4 bg-[#008d96] rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-[#00b4bf] transition-all"

@@ -15,10 +15,12 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-
+import { useDemoModal } from '@/context/DemoContext';
+import Link from 'next/link';
 const BRAND_TEAL = "#008d96";
 
 const OfflineClassesPage = () => {
+  const { openDemoModal } = useDemoModal();
   const conductFeatures = [
     { icon: UserCheck, title: "In-Person Training", desc: "Direct mentorship from experienced FIDE-rated coaches." },
     { icon: Sparkles, title: "Real Chessboards", desc: "Tactile learning with physical boards for better spatial logic." },
@@ -201,14 +203,25 @@ const OfflineClassesPage = () => {
                <p className="text-white/80 font-medium text-sm md:text-lg mb-8 md:mb-10 max-w-2xl mx-auto">
                  Find a center near you in Pune or Nashik and start your logic-driven journey toward chess mastery.
                </p>
-               <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
-                  <button className="px-8 py-4 bg-white text-[#008d96] rounded-2xl font-black uppercase tracking-widest text-[10px] md:text-xs shadow-xl transition-all hover:scale-105 active:scale-95">
-                    Find Center Location
-                  </button>
-                  <button className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-[10px] md:text-xs shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
-                    Request a Demo <ChevronRight size={14} />
-                  </button>
-               </div>
+              <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
+
+  {/* Find Center Location */}
+  <Link
+    href="/contact"
+    className="px-8 py-4 bg-white text-[#008d96] rounded-2xl font-black uppercase tracking-widest text-[10px] md:text-xs shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center justify-center"
+  >
+    Find Center Location
+  </Link>
+
+  {/* Request Demo */}
+  <button
+    onClick={openDemoModal}
+    className="px-8 py-4 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-[10px] md:text-xs shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
+  >
+    Request a Demo <ChevronRight size={14} />
+  </button>
+
+</div>
             </div>
             {/* Background Texture Overlay */}
             <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>

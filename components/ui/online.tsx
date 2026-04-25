@@ -4,12 +4,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Globe2, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import { useDemoModal } from "@/context/DemoContext";
 
 const BRAND_TEAL = "#008d96";
 // High-quality chess image for the background
 const HERO_IMAGE = "/hero-bg.jpg";
 
 const HeroSection = () => {
+  const { openDemoModal } = useDemoModal();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 pt-15">
       
@@ -86,7 +88,7 @@ const HeroSection = () => {
         >
           LEARN CHESS FROM <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#008d96] to-[#00f2ff]">
-            ANYWHERE ON EARTH.
+            ANYWHERE IN THE WORLD.
           </span>
         </motion.h1>
         
@@ -109,7 +111,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row justify-center gap-4 items-center"
         >
-          <button className="group px-8 py-5 bg-[#008d96] text-white rounded-2xl font-black uppercase tracking-widest text-xs shadow-2xl shadow-[#008d96]/40 hover:-translate-y-1 transition-all active:scale-95 flex items-center gap-2">
+          <button onClick={openDemoModal} className="group px-8 py-5 bg-[#008d96] text-white rounded-2xl font-black uppercase tracking-widest text-xs shadow-2xl shadow-[#008d96]/40 hover:-translate-y-1 transition-all active:scale-95 flex items-center gap-2">
             Book a Free Online Demo
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </button>

@@ -47,11 +47,11 @@ const OnlineClassesPage = () => {
     <div className="min-h-screen bg-white font-sans selection:bg-[#008d96]/20">
       
       <HeroSection/>
+      <GlobalPresence/>
       <ProblemSolution/>
       <HowOnlineClassesWork/>
       <CurriculumPreview/>
       <BatchStructure/>
-      <GlobalPresence/>
       <FinalCTA/>
 
 

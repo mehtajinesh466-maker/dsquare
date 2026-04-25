@@ -51,10 +51,13 @@ const CompactCTA = () => {
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </button>
 
-              <button className="w-full sm:w-auto px-8 py-5 bg-white/5 text-white border border-white/10 rounded-2xl font-black uppercase tracking-[0.15em] text-xs hover:bg-white/10 transition-all flex items-center justify-center gap-3">
-                <MessageCircle size={18} className="text-emerald-400" />
-                WhatsApp Us
-              </button>
+              <button
+  onClick={() => window.open("https://wa.me/919588617808", "_blank")}
+  className="w-full sm:w-auto px-8 py-5 bg-white/5 text-white border border-white/10 rounded-2xl font-black uppercase tracking-[0.15em] text-xs hover:bg-white/10 transition-all flex items-center justify-center gap-3"
+>
+  <MessageCircle size={18} className="text-emerald-400" />
+  WhatsApp Us
+</button>
             </div>
 
           </div>

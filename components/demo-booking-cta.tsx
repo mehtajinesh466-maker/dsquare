@@ -2,10 +2,12 @@
 
 import React from "react";
 import { ArrowRight, Phone, ShieldCheck, Trophy, Brain } from "lucide-react";
+import { useDemoModal } from "@/context/DemoContext";
 
 const BRAND_TEAL = "#008d96";
 
 const CompactDemoCTA: React.FC = () => {
+  const { openDemoModal } = useDemoModal();
   return (
     <section className="py-10 md:py-16 px-4 md:px-8 bg-white font-sans">
       <div 
@@ -41,7 +43,7 @@ const CompactDemoCTA: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-8">
               <a 
-                href="/book-demo"
+              onClick={openDemoModal}
                 className="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 rounded-full font-black text-base flex items-center justify-center gap-3 hover:bg-slate-100 transition-all shadow-lg active:scale-95"
               >
                 Book Free Demo
@@ -49,7 +51,7 @@ const CompactDemoCTA: React.FC = () => {
               </a>
 
               <a 
-                href="tel:+918130627389"
+                href="tel:+919588617808"
                 className="flex items-center gap-3 text-white font-bold hover:text-white/80 transition-colors group"
               >
                 <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white/10 transition-all">

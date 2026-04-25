@@ -33,7 +33,7 @@ const ContactSection: React.FC = () => {
       `*Student:* ${formData.studentName}%0A` +
       `*Contact:* ${formData.phone}%0A` +
       `*Message:* ${formData.comment}`;
-    window.open(`https://wa.me/918130627389?text=${message}`, "_blank");
+    window.open(`https://wa.me/919588617808?text=${message}`, "_blank");
   };
 
   const socialLinks = [
