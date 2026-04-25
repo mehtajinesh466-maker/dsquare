@@ -38,7 +38,7 @@ const ContactSection: React.FC = () => {
 
   const socialLinks = [
     { name: "Instagram", icon: Instagram, handle: "@dsquarechessacademy", color: "#E1306C", url: "https://www.instagram.com/dsquarechessacademy?igsh=MXMwaDZieGhqaHpiNQ==" },
-    { name: "Facebook", icon: Facebook, handle: "D’Square Chess Academy", color: "#1877F2", url: "#" },
+    { name: "Facebook", icon: Facebook, handle: "D’Square Chess Academy", color: "#1877F2", url: "https://www.facebook.com/profile.php?id=100089823037436" },
   ];
 
   const platforms = [

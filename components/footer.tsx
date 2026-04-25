@@ -20,7 +20,7 @@ import {
 
 const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/dsquarechessacademy?igsh=MXMwaDZieGhqaHpiNQ==" },
-  { icon: Facebook, href: "https://facebook.com/yourpage" },
+  { icon: Facebook, href: "https://www.facebook.com/profile.php?id=100089823037436" },
 ];
 
 const countries = [
