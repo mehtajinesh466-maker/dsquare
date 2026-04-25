@@ -82,26 +82,6 @@ export default function SideBySideHero() {
           {/* Changed width to 45% and lg:justify-start to pull it toward the text */}
           <div className="w-full lg:w-[45%] relative flex justify-center items-center lg:justify-start">
             
-            {/* Floating Card */}
-            <Link href="/online">
-  <motion.div 
-    initial={{ x: 20, opacity: 0 }}
-    animate={{ x: 0, opacity: 1 }}
-    transition={{ delay: 0.5 }}
-    className="absolute -left-8 top-10 z-30 hidden xl:flex items-center gap-3 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white cursor-pointer"
-  >
-    <div 
-      className="w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0" 
-      style={{ backgroundColor: BRAND_TEAL }}
-    >
-      <Play fill="currentColor" size={16} />
-    </div>
-
-    <h4 className="font-black text-[10px] leading-tight uppercase tracking-tight text-slate-700">
-      LIVE INTERACTIVE<br/>CLASSES
-    </h4>
-  </motion.div>
-</Link>
 
             {/* Central Visual Stack */}
             {/* Added a max-width on the image itself to ensure it doesn't drift too far */}

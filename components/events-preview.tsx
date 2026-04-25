@@ -3,6 +3,7 @@
 import React from "react";
 import { CheckCircle2, ArrowRight, Clock, Target, Trophy, Star, Crown, Flame, Sparkles, BookOpen } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const courseData = [
   {
@@ -114,8 +115,11 @@ const courseData = [
     icon: <Sparkles size={18} />
   },
 ];
+import { useDemoModal } from "@/context/DemoContext";
 
 export default function CoursesSection() {
+  const { openDemoModal } = useDemoModal();
+
   const BRAND_TEAL = "#008d96";
 
   return (
@@ -212,8 +216,9 @@ export default function CoursesSection() {
                       </p>
                    </div>
                    
-                   <Link
-  href="/contact"
+                   <Button
+
+  onClick={openDemoModal}
   className="w-12 h-12 rounded-2xl flex items-center justify-center text-white transition-all hover:scale-105 active:scale-90 shadow-lg"
   style={{ 
     backgroundColor: course.theme,
@@ -221,7 +226,7 @@ export default function CoursesSection() {
   }}
 >
   <ArrowRight size={20} strokeWidth={3} />
-</Link>
+</Button>
                 </div>
               </div>
             </div>

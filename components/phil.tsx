@@ -3,10 +3,13 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Phone, Brain, Target, Cpu, Crown, Quote, MoveUpRight } from "lucide-react";
+import { useDemoModal } from "@/context/DemoContext";
 
 const BRAND_TEAL = "#008d96";
 
 export default function BalancedChessPhilosophy() {
+  const { openDemoModal } = useDemoModal();
+
   return (
     <section className="py-16 md:py-24 px-4 md:px-8 bg-white overflow-hidden font-sans">
       <div className="max-w-7xl mx-auto">
@@ -109,15 +112,15 @@ export default function BalancedChessPhilosophy() {
 
             {/* CTA & Helpline */}
             <div className="flex flex-col sm:flex-row items-center gap-10 pt-4">
-              <Link href="/contact">
+              
   <button 
+  onClick={openDemoModal}
     style={{ backgroundColor: BRAND_TEAL }}
     className="group w-full sm:w-auto px-9 py-5 text-white rounded-2xl font-black flex items-center justify-center gap-3 shadow-xl hover:-translate-y-1 transition-all"
   >
     MAKE YOUR MOVE
     <MoveUpRight size={20} className="group-hover:translate-x-1 transition-transform" />
   </button>
-</Link>
               
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center text-orange-600 shadow-inner">

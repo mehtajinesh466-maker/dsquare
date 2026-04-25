@@ -48,23 +48,23 @@ const Logo = ({ scrolled }: { scrolled: boolean }) => (
 );
 
 /**
- * Desktop Navigation with Dropdown support
+ * Desktop Navigation with Teal Background
  */
 const DesktopNav = () => (
-  <nav className="hidden xl:flex items-center gap-x-1 p-1.5 bg-gray-50/80 rounded-full border border-gray-200/50 backdrop-blur-sm">
+  <nav className="hidden xl:flex items-center gap-x-1 p-1.5 bg-[#008d96] rounded-full border border-white/10 shadow-lg backdrop-blur-sm">
     {NAV_ITEMS.map((item) => (
       <div key={item.name} className="relative group">
         {item.submenu ? (
           // Dropdown Trigger
-          <button className="flex items-center gap-1 px-4 py-2 text-[13px] font-bold text-gray-600 rounded-full hover:bg-white hover:text-[#008d96] transition-all duration-200 whitespace-nowrap">
+          <button className="flex items-center gap-1 px-4 py-2 text-[13px] font-bold text-white rounded-full hover:bg-white hover:text-[#008d96] transition-all duration-300 whitespace-nowrap">
             {item.name}
-            <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
+            <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300 opacity-80" />
           </button>
         ) : (
           // Standard Link
           <a
             href={item.href}
-            className="px-4 py-2 text-[13px] font-bold text-gray-600 rounded-full hover:bg-white hover:text-[#008d96] transition-all duration-200 whitespace-nowrap"
+            className="px-4 py-2 text-[13px] font-bold text-white rounded-full hover:bg-white hover:text-[#008d96] transition-all duration-300 whitespace-nowrap"
           >
             {item.name}
           </a>

@@ -24,7 +24,7 @@ const CoachProfile = () => {
               <div className="relative rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl aspect-[4/5]">
                 <img 
                   src="/coach1.jpeg" // REPLACE WITH YOUR ACTUAL PHOTO PATH
-                  alt="Pushkar Jadhav - Head Coach"
+                  alt="Pushkar Jadhav"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
                 
@@ -53,7 +53,7 @@ const CoachProfile = () => {
                   <span style={{ color: BRAND_TEAL }}>Jadhav.</span>
                 </h2>
                 <p className="text-xl font-bold text-slate-400 uppercase tracking-widest">
-                  Head Coach | National Arbiter
+                  National Arbiter
                 </p>
               </div>
 
